@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/14 18:52:04 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/18 17:42:50 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,15 @@ static void	ps_stack_dup_check(int32_t number, t_node **stack)
 	}
 }
 
-static void	ps_stack_a_init(t_data *data, int32_t argc, char **argv)
+static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)
 {
 	int32_t	number;
 
-	data->stack_a = ps_calloc(data->stack_a, sizeof(t_node));
 	while (argc > 1)
 	{
 		number = ps_atoi(argv[argc - 1]);
-		ps_stack_dup_check(number, &data->stack_a);
+		if (data->stack_a)
+			ps_stack_dup_check(number, &data->stack_a);
 		ps_stack_front_add(&data->stack_a, ps_stack_new(number));
 		argc--;
 	}
@@ -70,6 +70,6 @@ static void	ps_stack_a_init(t_data *data, int32_t argc, char **argv)
 
 void	ps_init(t_data *data, int argc, char **argv)
 {
-	data = ps_calloc(data, sizeof(t_data));
-	ps_stack_a_init(data, argc, argv);
+	ft_bzero(data, sizeof(t_data));
+	ps_stack_ab_init(data, argc, argv);
 }

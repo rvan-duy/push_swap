@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/05/14 18:06:52 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/05/17 16:11:43 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ HEADER	= -I include
 CHECKER	= main.c \
 			ps_init.c \
 			ps_utils_1.c \
-			ps_node_utils.c
+			ps_node_utils.c \
+			ps_operations_1.c
 LIBFT 	= libft/libft.a
 
 NOCOLOR = \033[0m
@@ -61,4 +62,4 @@ re: fclean all
 
 test: clean all
 	@echo "$(COLOR)Testing with basic test case.$(NOCOLOR)"
-	@./$(NAME) 3 2 1
+	./$(NAME) 0 1 2 3

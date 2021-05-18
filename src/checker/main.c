@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:07:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/18 17:47:37 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/18 17:56:03 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	ps_operation_read(char *line, t_data *data)
 	else if (!ft_strncmp(line, "rrb", 4))
 		ps_operation_reverse_rotate(&data->stack_b);
 	else if (!ft_strncmp(line, "rrr", 4))
-		printf("rrr\n");
+		ps_operation_reverse_rotate_both(&data->stack_a, &data->stack_b);
 	else if (ft_strncmp(line, "\0", 2))
 		ps_error();
 	printf("a:\n");

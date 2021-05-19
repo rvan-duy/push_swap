@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:07:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/19 14:48:14 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/19 17:51:29 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	ps_operation_read(char *line, t_data *data)
 		ps_error();
 }
 
-int	main(int32_t argc, char **argv)
+int32_t	main(int32_t argc, char **argv)
 {
 	int32_t	ret;
 	char	*line;

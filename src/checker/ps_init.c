@@ -6,13 +6,12 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/19 14:48:11 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/19 17:41:38 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "node.h"
 #include "libft.h"
-#include <stdint.h>
 
 static int	ps_atoi(char *s)
 {

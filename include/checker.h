@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 12:36:42 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/19 14:46:31 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/19 17:45:48 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,6 @@ typedef struct s_data {
 	t_node	*stack_a;
 	t_node	*stack_b;
 }	t_data;
-
-t_node	*ps_node_new(int32_t number);
-t_node	*ps_node_last_get(t_node **node);
-t_node	*ps_node_unlink(t_node **head, t_node *node);
-void	ps_node_front_add(t_node **head, t_node *new);
-void	ps_node_back_add(t_node **head, t_node *new);
-void	ps_node_print(t_node **head);
 
 void	ps_init(t_data *data, int32_t argc, char **argv);
 void	*ps_calloc(size_t size);

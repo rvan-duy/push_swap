@@ -6,11 +6,11 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/18 17:42:50 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/19 14:48:11 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "node.h"
 #include "libft.h"
 #include <stdint.h>
 
@@ -62,10 +62,10 @@ static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)
 		number = ps_atoi(argv[argc - 1]);
 		if (data->stack_a)
 			ps_stack_dup_check(number, &data->stack_a);
-		ps_stack_front_add(&data->stack_a, ps_stack_new(number));
+		ps_node_front_add(&data->stack_a, ps_node_new(number));
 		argc--;
 	}
-	ps_stack_print(&data->stack_a);
+	ps_node_print(&data->stack_a);
 }
 
 void	ps_init(t_data *data, int argc, char **argv)

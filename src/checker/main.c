@@ -6,12 +6,13 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:07:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/18 17:56:03 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/19 14:48:14 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "checker.h"
+#include "operations.h"
+#include "node.h"
 #include <stdio.h>
 
 // REDO THIS
@@ -49,21 +50,8 @@ static void	ps_operation_read(char *line, t_data *data)
 		ps_operation_reverse_rotate_both(&data->stack_a, &data->stack_b);
 	else if (ft_strncmp(line, "\0", 2))
 		ps_error();
-	printf("a:\n");
-	ps_stack_print(&data->stack_a);
-	printf("b:\n");
-	ps_stack_print(&data->stack_b);
 }
 
-// TODO:
-// count argc -> read argv into linked lists
-// start loop (until EOF is reached)
-//		read instruction -> check if its valid
-//		if it is, execute instruction
-// end loop
-// check if list is sorted
-//		-> return OK
-//		-> else return KO
 int	main(int32_t argc, char **argv)
 {
 	int32_t	ret;
@@ -81,10 +69,10 @@ int	main(int32_t argc, char **argv)
 			free(line);
 		}
 		printf("a:\n");
-		ps_stack_print(&data.stack_a);
+		ps_node_print(&data.stack_a);
 		printf("b:\n");
-		ps_stack_print(&data.stack_b);
-		ps_sorted_check(&data.stack_a);
+		ps_node_print(&data.stack_b);
+		ps_sorted_check(&data.stack_a, &data.stack_b);
 		ft_putendl_fd("[OK]", 1);
 	}
 	return (1);

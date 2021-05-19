@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/05/17 16:11:43 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/05/19 14:47:56 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,34 +15,41 @@ CC		= gcc
 FLAGS	= -g -fsanitize=address -Wall -Wextra -Werror
 UNUSED  = -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
 HEADER	= -I include
-CHECKER	= main.c \
-			ps_init.c \
-			ps_utils_1.c \
-			ps_node_utils.c \
-			ps_operations_1.c
+CHECKER	= checker/main.c \
+			checker/ps_init.c \
+			checker/ps_utils_1.c \
+			operations/ps_operation_push.c \
+			operations/ps_operation_rotate.c \
+			operations/ps_operation_switch.c \
+			operations/ps_operation_reverse_rotate.c \
+			node/ps_node_back_add.c \
+			node/ps_node_front_add.c \
+			node/ps_node_last_get.c \
+			node/ps_node_new.c \
+			node/ps_node_print.c \
+			node/ps_node_unlink.c
 LIBFT 	= libft/libft.a
 
 NOCOLOR = \033[0m
 COLOR = \033[33m
 
-SRC_DIR	= \
-		$(addprefix checker/, $(CHECKER))
-
 OBJ_DIR	= \
 	obj \
-	obj/checker
+	obj/checker \
+	obj/operations \
+	obj/node
 
-SRC		= $(addprefix src/, $(SRC_DIR))
+SRC		= $(addprefix src/, $(CHECKER))
 OBJ		= $(SRC:src/%.c=obj/%.o)
 
 all: $(NAME)
 
 obj/%.o: src/%.c
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(UNUSED) $(HEADER) -c $< -o $@
+	$(CC) $(UNUSED) $(HEADER) -c $< -o $@
 
 $(NAME): $(OBJ)
-	@$(CC) $(UNUSED) $(HEADER) $(OBJ) $(LIBFT) -o $(NAME)
+	$(CC) $(UNUSED) $(HEADER) $(OBJ) $(LIBFT) -o $(NAME)
 	@echo "$(COLOR)Creating object files and the executable. ($(NAME))$(NOCOLOR)"
 
 .PHONY:	clean fclean re

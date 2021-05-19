@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 14:04:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/17 16:26:50 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/19 12:52:04 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	*ps_calloc(size_t size)
 	return (ptr);
 }
 
-void	ps_sorted_check(t_node **stack)
+void	ps_sorted_check(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*tmp;
 	int32_t	prev_value;
 
-	tmp = *stack;
+	tmp = *stack_a;
 	prev_value = INT32_MIN;
 	while (tmp->next != NULL)
 	{
@@ -46,6 +46,11 @@ void	ps_sorted_check(t_node **stack)
 		}
 		prev_value = tmp->value;
 		tmp = tmp->next;
+	}
+	if (*stack_b)
+	{
+		ft_putendl_fd("[KO]", 1);
+		exit(1);
 	}
 }
 

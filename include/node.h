@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   checker.h                                          :+:    :+:            */
+/*   node.h                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/14 12:36:42 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/19 14:46:31 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/19 13:55:52 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/19 14:26:50 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef NODE_H
+# define NODE_H
 
-# include <stdlib.h>
-# include <stdio.h>
-
-typedef struct s_node {
-	struct s_node	*prev;
-	int32_t			value;
-	struct s_node	*next;
-}	t_node;
-
-typedef struct s_data {
-	size_t	element_count;
-	t_node	*stack_a;
-	t_node	*stack_b;
-}	t_data;
+# include "checker.h"
 
 t_node	*ps_node_new(int32_t number);
 t_node	*ps_node_last_get(t_node **node);
@@ -34,11 +21,5 @@ t_node	*ps_node_unlink(t_node **head, t_node *node);
 void	ps_node_front_add(t_node **head, t_node *new);
 void	ps_node_back_add(t_node **head, t_node *new);
 void	ps_node_print(t_node **head);
-
-void	ps_init(t_data *data, int32_t argc, char **argv);
-void	*ps_calloc(size_t size);
-void	ps_error(void);
-void	ps_sorted_check(t_node **stack_a, t_node **stack_b);
-void	ps_ints_swap(int32_t *a, int32_t *b);
 
 #endif

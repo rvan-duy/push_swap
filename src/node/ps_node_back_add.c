@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/19 14:02:57 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/19 14:26:14 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/20 15:47:48 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void	ps_node_back_add(t_node **head, t_node *new)
 {
 	t_node	*tmp;
 
+	if (!*head)
+	{
+		*head = new;
+		return ;
+	}
 	tmp = ps_node_last_get(head);
 	tmp->next = new;
 	new->prev = tmp;

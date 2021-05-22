@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/05/19 17:55:39 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/05/20 15:30:16 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,40 +16,43 @@ CC			= gcc
 FLAGS		= -g -fsanitize=address -Wall -Wextra -Werror
 UNUSED		= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
 HEADER		= -I include
-SRC_CHECKER	= checker/main.c
+SRC_CHECKER	= checker.c
 SRC_PUSH_SWAP = push_swap.c
-SRC_BOTH	= checker/ps_init.c checker/ps_utils_1.c operations/ps_operation_push.c \
+SRC_BOTH	= utilities/ps_init.c utilities/ps_utils_1.c operations/ps_operation_push.c \
 				operations/ps_operation_rotate.c operations/ps_operation_switch.c operations/ps_operation_reverse_rotate.c \
 				node/ps_node_back_add.c node/ps_node_front_add.c node/ps_node_last_get.c node/ps_node_new.c \
-				node/ps_node_print.c node/ps_node_unlink.c
+				node/ps_node_print.c node/ps_node_unlink.c node/ps_node_len.c node/ps_node_inbetween_add.c
 LIBFT 	= libft/libft.a
 
 NOCOLOR = \033[0m
-COLOR = \033[33m
+COLOR = \033[32m
 
 OBJ_DIR	= \
 	obj \
-	obj/checker \
+	obj/utilities \
 	obj/operations \
 	obj/node
 
-SRC		=	$(addprefix src/, $(SRC_CHECKER))
-SRCS_PUSH_SWAP = $(addprefix src/, $(SRC_PUSH_SWAP))
-OBJ		= $(SRC:src/%.c=obj/%.o)
-OBJ_PUSH_SWAP = $(SRCS_PUSH_SWAP:src/%.c=obj/%.o)
+SRCS_CHECKER	= $(addprefix src/, $(SRC_CHECKER))
+SRCS_PUSH_SWAP	= $(addprefix src/, $(SRC_PUSH_SWAP))
+SRCS_BOTH		= $(addprefix src/, $(SRC_BOTH))
+OBJ_CHECKER		= $(SRCS_CHECKER:src/%.c=obj/%.o)
+OBJ_PUSH_SWAP 	= $(SRCS_PUSH_SWAP:src/%.c=obj/%.o)
+OBJ_BOTH		= $(SRCS_BOTH:src/%.c=obj/%.o)
 
-all: $(CHECKER)
+all: $(CHECKER) $(PUSH_SWAP)
 
 obj/%.o: src/%.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(UNUSED) $(HEADER) -c $< -o $@
 
-$(CHECKER): $(OBJ)
-	@$(CC) $(UNUSED) $(HEADER) $(OBJ) $(LIBFT) -o $(CHECKER)
+$(CHECKER): $(OBJ_CHECKER) $(OBJ_BOTH)
+	@$(CC) $(UNUSED) $(HEADER) $(OBJ_CHECKER) $(OBJ_BOTH) $(LIBFT) -o $(CHECKER)
 	@echo "$(COLOR)Creating object files and the executable. ($(CHECKER))$(NOCOLOR)"
 
-$(PUSH_SWAP): $(OBJ_PUSH_SWAP)
-	$(CC) $(UNUSED) $(HEADER) $(OBJ_PUSH_SWAP) $(LIBFT) -o $(PUSH_SWAP)
+$(PUSH_SWAP): $(OBJ_PUSH_SWAP) $(OBJ_BOTH)
+	@$(CC) $(UNUSED) $(HEADER) $(OBJ_PUSH_SWAP) $(OBJ_BOTH) $(LIBFT) -o $(PUSH_SWAP)
+	@echo "$(COLOR)Creating object files and the executable. ($(PUSH_SWAP))$(NOCOLOR)"
 
 .PHONY:	clean fclean re
 
@@ -68,6 +71,4 @@ re: fclean all
 
 test: clean all
 	@echo "$(COLOR)Testing with basic test case.$(NOCOLOR)"
-	./$(CHECKER) 0 1 2 3
-
-push_swap: $(PUSH_SWAP)
+	./$(PUSH_SWAP) 0 1 2 3

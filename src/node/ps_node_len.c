@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_node_last_get.c                                 :+:    :+:            */
+/*   ps_node_len.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/19 14:04:18 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/20 13:43:11 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/20 13:38:10 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/20 14:12:28 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "node.h"
 
-t_node	*ps_node_last_get(t_node **head)
+size_t	ps_node_len(t_node **head)
 {
 	t_node	*tmp;
+	size_t	i;
 
 	tmp = *head;
-	while (tmp->next != NULL)
+	i = 0;
+	while (tmp)
+	{
 		tmp = tmp->next;
-	return (tmp);
+		i++;
+	}
+	return (i);
 }

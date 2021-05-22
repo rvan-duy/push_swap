@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 12:36:42 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/19 17:45:48 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/20 14:28:36 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CHECKER_H
 
 # include <stdlib.h>
-# include <stdio.h>
 
 typedef struct s_node {
 	struct s_node	*prev;
@@ -23,9 +22,10 @@ typedef struct s_node {
 }	t_node;
 
 typedef struct s_data {
-	size_t	element_count;
+	size_t	total_len;
 	t_node	*stack_a;
 	t_node	*stack_b;
+	t_node	*sorted;
 }	t_data;
 
 void	ps_init(t_data *data, int32_t argc, char **argv);

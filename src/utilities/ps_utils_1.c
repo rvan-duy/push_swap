@@ -6,13 +6,12 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 14:04:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/19 12:52:04 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/20 13:38:48 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 #include "libft.h"
-#include <stdio.h>
 
 void	ps_error(void)
 {

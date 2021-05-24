@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/05/20 15:30:16 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/05/24 12:57:03 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,17 +44,17 @@ all: $(CHECKER) $(PUSH_SWAP)
 
 obj/%.o: src/%.c
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(UNUSED) $(HEADER) -c $< -o $@
+	@$(CC) $(FLAGS) $(HEADER) -c $< -o $@
 
 $(CHECKER): $(OBJ_CHECKER) $(OBJ_BOTH)
-	@$(CC) $(UNUSED) $(HEADER) $(OBJ_CHECKER) $(OBJ_BOTH) $(LIBFT) -o $(CHECKER)
+	@$(CC) $(FLAGS) $(HEADER) $(OBJ_CHECKER) $(OBJ_BOTH) $(LIBFT) -o $(CHECKER)
 	@echo "$(COLOR)Creating object files and the executable. ($(CHECKER))$(NOCOLOR)"
 
 $(PUSH_SWAP): $(OBJ_PUSH_SWAP) $(OBJ_BOTH)
-	@$(CC) $(UNUSED) $(HEADER) $(OBJ_PUSH_SWAP) $(OBJ_BOTH) $(LIBFT) -o $(PUSH_SWAP)
+	@$(CC) $(FLAGS) $(HEADER) $(OBJ_PUSH_SWAP) $(OBJ_BOTH) $(LIBFT) -o $(PUSH_SWAP)
 	@echo "$(COLOR)Creating object files and the executable. ($(PUSH_SWAP))$(NOCOLOR)"
 
-.PHONY:	clean fclean re
+.PHONY:	all clean fclean re debug
 
 clean:
 	@/bin/rm -f $(OBJ)
@@ -63,7 +63,7 @@ clean:
 	@echo "$(COLOR)Removing object files.$(NOCOLOR)"
 
 fclean: clean
-	@/bin/rm -f $(CHECKER)
+	@/bin/rm -f $(CHECKER) $(PUSH_SWAP)
 	@/bin/rm -rf $(OBJ_DIR)
 	@echo "$(COLOR)Removing executable and object directories.$(NOCOLOR)"
 

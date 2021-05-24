@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/20 16:30:11 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/24 12:55:25 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,37 +51,9 @@ static void	ps_stack_dup_check(int32_t number, t_node **head)
 			ps_error();
 		tmp = tmp->next;
 	}
+	if (number == tmp->value)
+		ps_error();
 }
-
-// static void	ps_node_sortedstack_add(t_node **head, t_node *new)
-// {
-// 	t_node	*tmp;
-
-// 	tmp = *head;
-// 	if (!tmp || (!tmp->next && new->value > tmp->value))
-// 		ps_node_back_add(head, new);
-// 	else
-// 	{
-// 		while (tmp)
-// 		{
-// 			printf("Hey\n");
-// 			if (tmp)
-// 			{
-// 				printf("*%d %d*\n", tmp->value, new->value);
-// 				if (tmp->value < new->value && tmp->next->value > new->value)
-// 				{
-// 					ft_putendl_fd("[found spot to put it in ;)]", 0);
-// 					ps_node_inbetween_add(tmp, tmp->next, new);
-// 				}
-// 			}
-// 			printf("Hey\n");
-// 			tmp = tmp->next;
-// 		}
-// 	}
-// 	ft_putendl_fd("[begin]", 0);
-// 	ps_node_print(head);
-// 	ft_putendl_fd("[end]", 0);
-// }
 
 static void	ps_node_sortedstack_add(t_node **head, t_node *new)
 {
@@ -92,20 +64,16 @@ static void	ps_node_sortedstack_add(t_node **head, t_node *new)
 		ps_node_back_add(head, new);
 	while (tmp)
 	{
-		printf("Tmp exists..\n");
 		if (tmp && tmp->next)
 		{
-			printf("Tmp is in the middle.\n");
 			if (tmp->value < new->value && tmp->next->value > new->value)
 			{
-				ft_putendl_fd("[Spot found]", 0);
 				ps_node_inbetween_add(tmp, tmp->next, new);
 				return ;
 			}
 		}
 		else if (tmp && !tmp->next)
 		{
-			printf("Is at the end.\n");
 			if (tmp->value < new->value)
 				ps_node_back_add(head, new);
 			else
@@ -114,9 +82,6 @@ static void	ps_node_sortedstack_add(t_node **head, t_node *new)
 		}
 		tmp = tmp->next;
 	}
-	ft_putendl_fd("[begin]", 0);
-	ps_node_print(head);
-	ft_putendl_fd("[end]", 0);
 }
 
 static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)

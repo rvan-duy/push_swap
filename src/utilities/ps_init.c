@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/24 14:51:02 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/24 14:57:20 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,10 @@ static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)
 	}
 	ps_stack_index_assign(&data->sorted);
 	ps_stack_index_read(&data->sorted, &data->stack_a);
-	printf("stack_a\n");
-	ps_node_print(&data->stack_a);
-	printf("sorted\n");
-	ps_node_print(&data->sorted);
+	// printf("stack_a\n");
+	// ps_node_print(&data->stack_a);
+	// printf("sorted\n");
+	// ps_node_print(&data->sorted);
 }
 
 void	ps_init(t_data *data, int argc, char **argv)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   checker.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:07:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/19 17:51:29 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/24 15:32:20 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,10 @@ int32_t	main(int32_t argc, char **argv)
 			ps_operation_read(line, &data);
 			free(line);
 		}
-		printf("a:\n");
-		ps_node_print(&data.stack_a);
-		printf("b:\n");
-		ps_node_print(&data.stack_b);
+		// printf("a:\n");
+		// ps_node_print(&data.stack_a);
+		// printf("b:\n");
+		// ps_node_print(&data.stack_b);
 		ps_sorted_check(&data.stack_a, &data.stack_b);
 		ft_putendl_fd("[OK]", 1);
 	}

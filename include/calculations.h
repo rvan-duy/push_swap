@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_operation_generate.c                            :+:    :+:            */
+/*   calculations.h                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/24 13:07:11 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/24 15:31:11 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/24 15:16:53 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/24 15:28:11 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "calculations.h"
+#ifndef CALCULATIONS_H
+# define CALCULATIONS_H
 
-// TODO
-void	ps_operation_generate(t_data *data)
-{
-	if (data->total_len == 3)
-		ps_calculate_small(&data->stack_a);
-	return ;
-}
+# include "operations.h"
+
+void	ps_calculate_small(t_node **stack_a);
+
+#endif

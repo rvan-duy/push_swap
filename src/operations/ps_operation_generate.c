@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.c                                        :+:    :+:            */
+/*   ps_operation_generate.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/19 13:11:04 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/24 13:06:46 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/24 13:07:11 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/24 13:10:44 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
-#include "node.h"
-#include <stdio.h>
 
-int32_t	main(int32_t argc, char **argv)
+// TODO
+void	ps_operation_generate(t_data *data)
 {
-	t_data	data;
-
-	if (argc > 1)
-	{
-		ps_init(&data, argc, argv);
-		ps_operation_generate(&data);
-	}
-	return (1);
+	if (data->total_len == 3)
+		return ;
+	return ;
 }

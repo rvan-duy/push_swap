@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/19 14:04:55 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/19 16:04:46 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/24 14:54:43 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void	ps_node_print(t_node **head)
 	tmp = *head;
 	while (tmp != NULL)
 	{
+		ft_putstr_fd("index[", 0);
+		ft_putnbr_fd(tmp->index, 0);
+		ft_putstr_fd("] ", 0);
 		ft_putnbr_fd(tmp->value, 0);
 		ft_putchar_fd('\n', 0);
 		tmp = tmp->next;

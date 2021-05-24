@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 14:04:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/20 13:38:48 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/24 13:34:13 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,30 @@ void	ps_ints_swap(int32_t *a, int32_t *b)
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
+}
+
+int	ps_atoi(char *s)
+{
+	int64_t	number;
+	int32_t	i;
+	int32_t	negative;
+
+	number = 0;
+	i = 0;
+	negative = 1;
+	if (s[i] == '-')
+	{
+		negative = negative * -1;
+		i++;
+	}
+	while (s[i] != '\0')
+	{
+		if (!ft_isdigit(s[i]))
+			ps_error();
+		number = number * 10 + s[i] - 48;
+		if (number > INT32_MAX)
+			ps_error();
+		i++;
+	}
+	return (negative * number);
 }

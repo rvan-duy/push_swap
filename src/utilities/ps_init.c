@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/24 12:55:25 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/24 14:51:02 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,73 +14,59 @@
 #include "libft.h"
 #include <stdio.h>
 
-static int	ps_atoi(char *s)
-{
-	int64_t	number;
-	int32_t	i;
-	int32_t	negative;
-
-	number = 0;
-	i = 0;
-	negative = 1;
-	if (s[i] == '-')
-	{
-		negative = negative * -1;
-		i++;
-	}
-	while (s[i] != '\0')
-	{
-		if (!ft_isdigit(s[i]))
-			ps_error();
-		number = number * 10 + s[i] - 48;
-		if (number > INT32_MAX)
-			ps_error();
-		i++;
-	}
-	return (negative * number);
-}
-
+// Checks if number already exits in the list, if it does it returns error
 static void	ps_stack_dup_check(int32_t number, t_node **head)
 {
 	t_node	*tmp;
 
 	tmp = *head;
-	while (tmp->next != NULL)
+	while (tmp)
 	{
 		if (number == tmp->value)
 			ps_error();
 		tmp = tmp->next;
 	}
-	if (number == tmp->value)
-		ps_error();
 }
 
-static void	ps_node_sortedstack_add(t_node **head, t_node *new)
+// Assigns index value to sorted list
+static void	ps_stack_index_assign(t_node **sorted)
 {
-	t_node	*tmp;
+	int32_t	i;
+	t_node	*tmp_sorted;
 
-	tmp = *head;
-	if (!tmp)
-		ps_node_back_add(head, new);
-	while (tmp)
+	tmp_sorted = *sorted;
+	i = 0;
+	while (tmp_sorted)
 	{
-		if (tmp && tmp->next)
+		tmp_sorted->index = i;
+		i++;
+		tmp_sorted = tmp_sorted->next;
+	}
+}
+
+/* Reads the index value from the sorted lists,
+ * which is then assigned to the corresponding node in stack_a
+ */
+static void	ps_stack_index_read(t_node **sorted, t_node **stack_a)
+{
+	t_node	*tmp_sorted;
+	t_node	*tmp_stack_a;
+
+	tmp_stack_a = *stack_a;
+	while (tmp_stack_a)
+	{
+		tmp_sorted = *sorted;
+		while (tmp_sorted)
 		{
-			if (tmp->value < new->value && tmp->next->value > new->value)
+			if (tmp_stack_a->value == tmp_sorted->value)
 			{
-				ps_node_inbetween_add(tmp, tmp->next, new);
-				return ;
+				tmp_stack_a->index = tmp_sorted->index;
+				tmp_sorted = NULL;
 			}
-		}
-		else if (tmp && !tmp->next)
-		{
-			if (tmp->value < new->value)
-				ps_node_back_add(head, new);
 			else
-				ps_node_front_add(head, new);
-			return ;
+				tmp_sorted = tmp_sorted->next;
 		}
-		tmp = tmp->next;
+		tmp_stack_a = tmp_stack_a->next;
 	}
 }
 
@@ -97,6 +83,8 @@ static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)
 		ps_node_sortedstack_add(&data->sorted, ps_node_new(number));
 		argc--;
 	}
+	ps_stack_index_assign(&data->sorted);
+	ps_stack_index_read(&data->sorted, &data->stack_a);
 	printf("stack_a\n");
 	ps_node_print(&data->stack_a);
 	printf("sorted\n");

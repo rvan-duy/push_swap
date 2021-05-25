@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/25 16:28:43 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/25 17:41:58 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ static void	ps_stack_index_assign(t_node **sorted)
 	}
 }
 
-/* Reads the index value from the sorted lists,
+/**
+ * Reads the index value from the sorted lists,
  * which is then assigned to the corresponding node in stack_a
  */
 static void	ps_stack_index_read(t_node **sorted, t_node **stack_a)

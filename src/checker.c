@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:07:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/25 16:25:42 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/25 17:41:22 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 #include "node.h"
 #include <stdio.h>
 
-// REDO THIS
-// pa: first elem of b to top of a || nothing if b is NULL
-// pb: first elem of a to top of b || nothing if a is NULL
-// ra: all elems in a go 1 up, first becomes last one
-// rb: all elems in b go 1 up, first becomes last one
-// rr: ra and rb at the same time
-// rra: all elems in a go 1 down, last becomes first one
-// rrb: all elems in b go 1 down, last becomes first one
-/// rrr: rra and rrb at the same time
+/* REDO THIS
+pa: first elem of b to top of a || nothing if b is NULL
+pb: first elem of a to top of b || nothing if a is NULL
+ra: all elems in a go 1 up, first becomes last one
+rb: all elems in b go 1 up, first becomes last one
+rr: ra and rb at the same time
+rra: all elems in a go 1 down, last becomes first one
+rrb: all elems in b go 1 down, last becomes first one
+/ rrr: rra and rrb at the same time */
 static void	ps_operation_exec(char *line, t_data *data)
 {
 	if (!ft_strncmp(line, "sa", 3))
-		ps_operation_switch(&data->stack_a);
+		ps_operation_swap(&data->stack_a);
 	else if (!ft_strncmp(line, "sb", 3))
-		ps_operation_switch(&data->stack_b);
+		ps_operation_swap(&data->stack_b);
 	else if (!ft_strncmp(line, "ss", 3))
-		ps_operation_switch_both(&data->stack_a, &data->stack_b);
+		ps_operation_swap_both(&data->stack_a, &data->stack_b);
 	else if (!ft_strncmp(line, "pa", 3))
 		ps_operation_push(&data->stack_a, &data->stack_b);
 	else if (!ft_strncmp(line, "pb", 3))
@@ -50,6 +50,10 @@ static void	ps_operation_exec(char *line, t_data *data)
 		ps_operation_reverse_rotate_both(&data->stack_a, &data->stack_b);
 	else if (ft_strncmp(line, "\0", 2))
 		ps_error();
+	printf("a:\n");
+	ps_node_print(&data->stack_a);
+	printf("b:\n");
+	ps_node_print(&data->stack_b);
 }
 
 int32_t	main(int32_t argc, char **argv)

@@ -6,12 +6,12 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/19 13:55:52 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/24 17:03:21 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/25 16:50:18 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NODEE_H
-# define NODEE_H
+#ifndef NODE_H
+# define NODE_H
 
 # include "checker.h"
 

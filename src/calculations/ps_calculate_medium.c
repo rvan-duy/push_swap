@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_operation_generate.c                            :+:    :+:            */
+/*   ps_calculate_medium.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/24 13:07:11 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/25 16:49:21 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/25 16:46:58 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/25 17:03:56 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "calculations.h"
+#include "node.h"
 #include "libft.h"
 
-void	ps_operation_generate(t_data *data)
+void	ps_calculate_medium(t_node **stack_a, t_node **stack_b)
 {
-	if (data->total_len == 2)
-		ps_calculate_extra_small(&data->stack_a);
-	if (data->total_len == 3)
-		ps_calculate_small(&data->stack_a);
-	if (data->total_len >= 4)
-		ps_calculate_medium(&data->stack_a, &data->stack_b);
+	t_node *tmp;
+	t_node *tmp2;
+	
+	tmp = *stack_a;
+	tmp2 = *stack_b;
+	return ;
 }

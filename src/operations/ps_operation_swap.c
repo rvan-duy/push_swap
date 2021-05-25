@@ -6,30 +6,36 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/19 13:22:24 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/25 13:53:27 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/25 17:39:46 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-// Switches first elemements of the stack, does nothing
-// if there are only 1 or 0 elements in the stack
-void	ps_operation_switch(t_node **head)
+/** 
+ * Switches the first 2 nodes of head, does nothing
+ * if there are only 1 or 0 nodes in head
+ */
+void	ps_operation_swap(t_node **head)
 {
-	t_node	*tmp_1;
-	t_node	*tmp_2;
+	t_node	*tmp;
 
 	if (!*head || !(*head)->next)
 		return ;
-	tmp_1 = *head;
-	tmp_2 = tmp_1->next;
-	ps_ints_swap(&tmp_1->value, &tmp_2->value);
+	tmp = (*head)->next;
+	(*head)->next = tmp->next;
+	tmp->next = *head;
+	tmp->prev = (*head)->prev;
+	(*head)->prev = tmp;
+	*head = tmp;
 }
 
-// Switches the first elements of two stacks, does nothing
-// if there are only 1 or 0 elements in the stack
-void	ps_operation_switch_both(t_node **head1, t_node **head2)
+/** 
+ * Switches the first 2 nodes of head1 and head2, does nothing
+ * if there are only 1 or 0 nodes in either one of the heads
+ */
+void	ps_operation_swap_both(t_node **head1, t_node **head2)
 {
-	ps_operation_switch(head1);
-	ps_operation_switch(head2);
+	ps_operation_swap(head1);
+	ps_operation_swap(head2);
 }

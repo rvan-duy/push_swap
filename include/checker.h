@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 12:36:42 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/24 17:14:43 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/25 17:43:29 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CHECKER_H
 
 # include <stdlib.h>
+
+// MUST REOORGANIZE THESE HEADERS, PUT STRUCTS IN SEPERATE HEADER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 typedef struct s_node {
 	struct s_node	*prev;
@@ -33,7 +35,6 @@ void	ps_init(t_data *data, int32_t argc, char **argv);
 void	*ps_calloc(size_t size);
 void	ps_error(void);
 void	ps_sorted_check(t_node **stack_a, t_node **stack_b);
-void	ps_ints_swap(int32_t *a, int32_t *b);
 int		ps_atoi(char *s);
 
 #endif

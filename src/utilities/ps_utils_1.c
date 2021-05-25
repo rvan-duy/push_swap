@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 14:04:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/25 16:17:14 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/25 17:22:38 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,6 @@ void	ps_sorted_check(t_node **stack_a, t_node **stack_b)
 		prev_value = tmp->value;
 		tmp = tmp->next;
 	}
-}
-
-void	ps_ints_swap(int32_t *a, int32_t *b)
-{
-	int32_t	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
 }
 
 int	ps_atoi(char *s)

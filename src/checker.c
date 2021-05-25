@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:07:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/24 17:09:59 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/25 16:25:42 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // rra: all elems in a go 1 down, last becomes first one
 // rrb: all elems in b go 1 down, last becomes first one
 /// rrr: rra and rrb at the same time
-static void	ps_operation_read(char *line, t_data *data)
+static void	ps_operation_exec(char *line, t_data *data)
 {
 	if (!ft_strncmp(line, "sa", 3))
 		ps_operation_switch(&data->stack_a);
@@ -65,7 +65,7 @@ int32_t	main(int32_t argc, char **argv)
 		while (ret > 0)
 		{
 			ret = get_next_line(0, &line);
-			ps_operation_read(line, &data);
+			ps_operation_exec(line, &data);
 			free(line);
 		}
 		// printf("a:\n");

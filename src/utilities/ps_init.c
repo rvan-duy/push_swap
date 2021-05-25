@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/24 17:02:34 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/25 16:28:43 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,26 @@ static void	ps_stack_index_read(t_node **sorted, t_node **stack_a)
 static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)
 {
 	int32_t	number;
+	size_t	i;
+	char	**numbers;
 
 	while (argc > 1)
 	{
-		number = ps_atoi(argv[argc - 1]);
-		if (data->stack_a)
-			ps_stack_dup_check(number, &data->stack_a);
-		ps_node_front_add(&data->stack_a, ps_node_new(number));
-		ps_node_sortedstack_add(&data->sorted, ps_node_new(number));
+		numbers = ft_split(argv[argc - 1], ' ');
+		if (!numbers)
+			ps_error();
+		i = 0;
+		while (numbers[i] != NULL)
+			i++;
+		while (i > 0)
+		{
+			number = ps_atoi(numbers[i - 1]);
+			if (data->stack_a)
+				ps_stack_dup_check(number, &data->stack_a);
+			ps_node_front_add(&data->stack_a, ps_node_new(number));
+			ps_node_sortedstack_add(&data->sorted, ps_node_new(number));
+			i--;
+		}
 		argc--;
 	}
 	ps_stack_index_assign(&data->sorted);

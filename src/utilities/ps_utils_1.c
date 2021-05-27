@@ -6,13 +6,12 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 14:04:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/27 10:45:43 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/27 22:04:31 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utilities.h"
 #include "libft.h"
-#include <stdio.h>
 
 void	ps_error(void)
 {

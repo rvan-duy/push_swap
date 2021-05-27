@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 09:46:38 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/27 10:11:06 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/27 14:47:00 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ typedef struct s_node {
 
 typedef struct s_data {
 	size_t	total_len;
+	size_t	stack_a_len;
+	size_t	stack_b_len;
+	size_t	median_index;
 	t_node	*stack_a;
 	t_node	*stack_b;
 	t_node	*sorted;

@@ -6,12 +6,12 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/19 13:11:04 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/25 13:46:44 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/27 10:47:36 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
-#include "node.h"
+#include "utilities.h"
 
 int32_t	main(int32_t argc, char **argv)
 {

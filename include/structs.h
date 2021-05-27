@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   checker.h                                          :+:    :+:            */
+/*   structs.h                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/14 12:36:42 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/25 17:43:29 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/27 09:46:38 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/27 10:11:06 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
+# include <stdint.h>
 # include <stdlib.h>
-
-// MUST REOORGANIZE THESE HEADERS, PUT STRUCTS IN SEPERATE HEADER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 typedef struct s_node {
 	struct s_node	*prev;
@@ -30,11 +29,5 @@ typedef struct s_data {
 	t_node	*stack_b;
 	t_node	*sorted;
 }	t_data;
-
-void	ps_init(t_data *data, int32_t argc, char **argv);
-void	*ps_calloc(size_t size);
-void	ps_error(void);
-void	ps_sorted_check(t_node **stack_a, t_node **stack_b);
-int		ps_atoi(char *s);
 
 #endif

@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   calculations.h                                     :+:    :+:            */
+/*   ps_utils_2.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/24 15:16:53 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/27 09:47:56 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/27 13:14:10 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/27 13:16:58 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CALCULATIONS_H
-# define CALCULATIONS_H
+#include "structs.h"
+#include "utilities.h"
 
-# include "structs.h"
+/**
+ * Checks if number already exits in the list
+ * If it does, it errors the program
+ */
+void	ps_stack_dup_check(int32_t number, t_node **head)
+{
+	t_node	*tmp;
 
-void	ps_calculate_extra_small(t_node **stack_a);
-void	ps_calculate_small(t_node **stack_a);
-void	ps_calculate_medium(t_node **stack_a, t_node **stack_b);
-
-#endif
+	tmp = *head;
+	while (tmp)
+	{
+		if (number == tmp->value)
+			ps_error();
+		tmp = tmp->next;
+	}
+}

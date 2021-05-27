@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/05/25 16:55:35 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/05/27 13:16:23 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ UNUSED		= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
 HEADER		= -I include
 SRC_CHECKER	= checker.c
 SRC_PUSH_SWAP = push_swap.c
-SRC_BOTH	= utilities/ps_init.c utilities/ps_utils_1.c operations/ps_operation_push.c \
-				operations/ps_operation_rotate.c operations/ps_operation_swap.c operations/ps_operation_reverse_rotate.c \
+SRC_BOTH	= utilities/ps_init.c utilities/ps_utils_1.c utilities/ps_utils_2.c operations/ps_operation_push.c \
+				operations/ps_operation_rotate.c operations/ps_operation_swap.c operations/ps_operation_rev_rotate.c \
 				node/ps_node_back_add.c node/ps_node_front_add.c node/ps_node_last_get.c node/ps_node_new.c node/ps_node_sortedstack_add.c \
 				node/ps_node_print.c node/ps_node_unlink.c node/ps_node_len.c node/ps_node_inbetween_add.c operations/ps_operation_generate.c \
 				calculations/ps_calculate_small.c calculations/ps_calculate_extra_small.c calculations/ps_calculate_medium.c

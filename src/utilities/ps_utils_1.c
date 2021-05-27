@@ -6,11 +6,11 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 14:04:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/25 17:22:38 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/27 10:45:43 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "utilities.h"
 #include "libft.h"
 #include <stdio.h>
 
@@ -18,6 +18,20 @@ void	ps_error(void)
 {
 	ft_putendl_fd("Error", 2);
 	exit(1);
+}
+
+void	ps_putresult(int result)
+{
+	if (result == 1)
+	{
+		ft_putendl_fd("OK", 1);
+		exit(1);
+	}
+	else
+	{
+		ft_putendl_fd("KO", 1);
+		exit(1);
+	}
 }
 
 void	*ps_calloc(size_t size)
@@ -38,17 +52,11 @@ void	ps_sorted_check(t_node **stack_a, t_node **stack_b)
 	tmp = *stack_a;
 	prev_value = INT32_MIN;
 	if (*stack_b)
-	{
-		ft_putendl_fd("[KO]", 1);
-		exit(1);
-	}
+		ps_putresult(0);
 	while (tmp)
 	{
 		if (tmp->value < prev_value)
-		{
-			ft_putendl_fd("[KO]", 1);
-			exit(1);
-		}
+			ps_putresult(0);
 		prev_value = tmp->value;
 		tmp = tmp->next;
 	}

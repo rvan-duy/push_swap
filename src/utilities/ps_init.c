@@ -6,30 +6,17 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/25 17:41:58 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/27 13:24:49 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "node.h"
 #include "libft.h"
+#include "utilities.h"
 #include <stdio.h>
 
-// Checks if number already exits in the list, if it does it returns error
-static void	ps_stack_dup_check(int32_t number, t_node **head)
-{
-	t_node	*tmp;
-
-	tmp = *head;
-	while (tmp)
-	{
-		if (number == tmp->value)
-			ps_error();
-		tmp = tmp->next;
-	}
-}
-
 // Assigns index value to sorted list
-static void	ps_stack_index_assign(t_node **sorted)
+static void	index_assign(t_node **sorted)
 {
 	int32_t	i;
 	t_node	*tmp_sorted;
@@ -48,7 +35,7 @@ static void	ps_stack_index_assign(t_node **sorted)
  * Reads the index value from the sorted lists,
  * which is then assigned to the corresponding node in stack_a
  */
-static void	ps_stack_index_read(t_node **sorted, t_node **stack_a)
+static void	index_read(t_node **sorted, t_node **stack_a)
 {
 	t_node	*tmp_sorted;
 	t_node	*tmp_stack_a;
@@ -71,6 +58,41 @@ static void	ps_stack_index_read(t_node **sorted, t_node **stack_a)
 	}
 }
 
+/**
+ * Checks if str is a valid string as input for the program
+ * Errors the program if it is not
+ * If it is, it splits the string on spaces and returns a array of strings
+ */
+static char	**string_split_checks(char *str)
+{
+	char	**numbers;
+	int32_t	digit_found;
+	int32_t	i;
+
+	if (str[0] == '\0')
+		ps_error();
+	i = 0;
+	digit_found = 0;
+	while (str[i] && digit_found == 0)
+	{
+		if (ft_isdigit(str[i]))
+			digit_found = 1;
+		i++;
+	}
+	if (digit_found == 0)
+		ps_error();
+	numbers = ft_split(str, ' ');
+	if (!numbers)
+		ps_error();
+	return (numbers);
+}
+
+/**
+ * Initializes the main data structure based on the argv input
+ * The values are stored inside the main stack_a
+ * But also in a sorted stack, which is then used to assign an index
+ * to the stack_a values
+ */
 static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)
 {
 	int32_t	number;
@@ -79,9 +101,7 @@ static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)
 
 	while (argc > 1)
 	{
-		numbers = ft_split(argv[argc - 1], ' ');
-		if (!numbers)
-			ps_error();
+		numbers = string_split_checks(argc[argv - 1]);
 		i = 0;
 		while (numbers[i] != NULL)
 			i++;
@@ -96,12 +116,8 @@ static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)
 		}
 		argc--;
 	}
-	ps_stack_index_assign(&data->sorted);
-	ps_stack_index_read(&data->sorted, &data->stack_a);
-	// printf("stack_a\n");
-	// ps_node_print(&data->stack_a);
-	// printf("sorted\n");
-	// ps_node_print(&data->sorted);
+	index_assign(&data->sorted);
+	index_read(&data->sorted, &data->stack_a);
 }
 
 void	ps_init(t_data *data, int argc, char **argv)

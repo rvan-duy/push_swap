@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/27 14:46:49 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/27 17:50:40 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,22 @@
 #include "libft.h"
 #include "utilities.h"
 #include <stdio.h>
+
+// PUT THIS IN LIBFT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	ft_array_free(char **array)
+{
+	int32_t	i;
+
+	i = 0;
+	while (array[i])
+		i++;
+	while (i >= 0)
+	{
+		free(array[i]);
+		i--;
+	}
+	free(array);
+}
 
 // Assigns index value to sorted list
 static void	index_assign(t_node **sorted)
@@ -114,6 +130,7 @@ static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)
 			ps_node_sortedstack_add(&data->sorted, ps_node_new(number));
 			i--;
 		}
+		ft_array_free(numbers);
 		argc--;
 	}
 	index_assign(&data->sorted);

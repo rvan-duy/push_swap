@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_calculate_medium.c                              :+:    :+:            */
+/*   ps_calculate_huge.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/25 16:46:58 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/28 16:23:26 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/28 17:55:32 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
+
+// Check list for data >> i + 1 & 1 == 0
+// then it stays
+// static int32_t	pushable_nodes(t_node **stack_b, size_t i)
+// {
+// 	t_node	*tmp;
+
+// 	tmp = *stack_b;
+// 	while (tmp)
+// 	{
+// 		if (((tmp->index >> i) & 1) == 0)
+// 			return (0);
+// 		tmp = tmp->next;
+// 	}
+// 	return (1);
+// }
 
 /**
  * My implementation of the Radix sort algorithm,

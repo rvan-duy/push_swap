@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/05/27 17:50:10 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/05/28 15:06:56 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRC_BOTH	= utilities/ps_init.c utilities/ps_utils_1.c utilities/ps_utils_2.c ope
 				operations/ps_operation_rotate.c operations/ps_operation_swap.c operations/ps_operation_rev_rotate.c \
 				node/ps_node_back_add.c node/ps_node_front_add.c node/ps_node_last_get.c node/ps_node_new.c node/ps_node_sortedstack_add.c \
 				node/ps_node_print.c node/ps_node_unlink.c node/ps_node_len.c node/ps_node_inbetween_add.c operations/ps_operation_generate.c \
-				calculations/ps_calculate_small.c calculations/ps_calculate_extra_small.c calculations/ps_calculate_medium.c
+				calculations/ps_calculate_small.c calculations/ps_calculate_extra_small.c calculations/ps_calculate_medium.c \
+				calculations/ps_calculate_utils_1.c
 LIBFT 	= libft/libft.a
 
 NOCOLOR = \033[0m
@@ -74,3 +75,6 @@ re: fclean all
 test: clean all
 	@echo "$(COLOR)Testing with basic test case.$(NOCOLOR)"
 	./$(PUSH_SWAP) 0 1 2 3
+
+py10: all
+	python3 ./pyviz.py `ruby -e "puts (1..500).to_a.shuffle.join(' ')"`

@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:07:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/27 11:23:00 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/28 14:01:19 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
  * rrb: all elems in b go 1 down, last becomes first one
  * rrr: rra + rrb
  */
+
 static void	ps_operation_exec(char *line, t_data *data)
 {
 	if (!ft_strncmp(line, "sa", 3))
@@ -56,10 +57,10 @@ static void	ps_operation_exec(char *line, t_data *data)
 		ps_operation_rev_rotate_both(&data->stack_a, &data->stack_b, NULL);
 	else if (ft_strncmp(line, "\0", 2))
 		ps_error();
-	printf("a:\n");
-	ps_node_print(&data->stack_a);
-	printf("b:\n");
-	ps_node_print(&data->stack_b);
+	// printf("a:\n");
+	// ps_node_print(&data->stack_a);
+	// printf("b:\n");
+	// ps_node_print(&data->stack_b);
 }
 
 int32_t	main(int32_t argc, char **argv)

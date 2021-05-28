@@ -6,12 +6,13 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/20 13:38:10 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/20 14:12:28 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/28 16:26:29 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "node.h"
 
+// Looks for the length of head
 size_t	ps_node_len(t_node **head)
 {
 	t_node	*tmp;

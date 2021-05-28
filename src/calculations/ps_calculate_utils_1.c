@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/28 11:49:25 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/28 12:24:36 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/28 15:42:37 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	apply_rotation(t_node **head, size_t solution, size_t amount)
 	}
 }
 
-void	ps_calculate_rotate_median(t_node **head, size_t len, size_t median)
+void	ps_calculate_rotate_bits(t_node **head, size_t len)
 {
 	size_t	i;
 	size_t	found_solution;
@@ -49,9 +49,9 @@ void	ps_calculate_rotate_median(t_node **head, size_t len, size_t median)
 	tmp_2 = ps_node_last_get(head);
 	while (i < (len / 2) && found_solution == 0)
 	{
-		if (tmp_1->next->index >= median)
+		if (((tmp_1->next->index >> i) & 1) == 0)
 			found_solution = 1;
-		else if (tmp_2->index >= median)
+		else if (((tmp_2->index >> i) & 1) == 0)
 			found_solution = 2;
 		tmp_1 = tmp_1->next;
 		tmp_2 = tmp_2->prev;

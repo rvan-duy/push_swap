@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/19 13:11:04 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/27 10:47:36 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/05/28 16:44:36 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int32_t	main(int32_t argc, char **argv)
 		ps_init(&data, argc, argv);
 		ps_operation_generate(&data);
 	}
-	return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/27 17:50:40 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/06/01 15:09:17 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,24 @@
 #include "utilities.h"
 #include <stdio.h>
 
+// eerst voorsoorteren met groepen, zodat we niet 50x hoeven te roteren
+// dan kan je steeds per groep shit doen ofzo
+// kleine groepen bovenaan zetten
+// 500 / 49
+// eerste 3 groepen vormen
+// dan die groepen steeds uitsplitesen
+// 
+
 // PUT THIS IN LIBFT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 void	ft_array_free(char **array)
 {
-	int32_t	i;
+	size_t	i;
 
 	i = 0;
 	while (array[i])
-		i++;
-	while (i >= 0)
 	{
 		free(array[i]);
-		i--;
+		i++;
 	}
 	free(array);
 }
@@ -34,7 +40,7 @@ void	ft_array_free(char **array)
 // Assigns index value to sorted list
 static void	index_assign(t_node **sorted)
 {
-	int32_t	i;
+	size_t	i;
 	t_node	*tmp_sorted;
 
 	tmp_sorted = *sorted;
@@ -83,7 +89,7 @@ static char	**string_split_checks(char *str)
 {
 	char	**numbers;
 	int32_t	digit_found;
-	int32_t	i;
+	size_t	i;
 
 	if (str[0] == '\0')
 		ps_error();

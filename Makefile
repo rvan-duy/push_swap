@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/05/28 18:23:43 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/06/01 15:50:00 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,4 +77,4 @@ test: clean all
 	./$(PUSH_SWAP) 0 1 2 3
 
 py10: all
-	python3 ./tester/pyviz.py `ruby -e "puts (0..500).to_a.shuffle.join(' ')"`
+	python3 ./tester/pyviz.py `ruby -e "puts (0..499).to_a.shuffle.join(' ')"`

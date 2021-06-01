@@ -2,6 +2,9 @@
 checker
 push_swap
 
+# normignore
+.normignore
+
 # Prerequisites
 *.d
 

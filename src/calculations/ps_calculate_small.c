@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 15:16:30 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/27 11:25:35 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/06/30 18:03:57 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,25 @@
  * Calculates the least amount of operations for a small amount of numbers (3).
  * These solutions are hard coded
  */
-void	ps_calculate_small(t_node **stack_a)
+
+void	ps_calculate_small(t_node **stack)
 {
-	if ((*stack_a)->index == 0 && (*stack_a)->next->index == 2)
+	if ((*stack)->value > (*stack)->next->next->value
+		&& (*stack)->next->value < (*stack)->next->next->value)
+		ps_operation_rotate(stack, "ra");
+	else if ((*stack)->value > (*stack)->next->value)
 	{
-		ps_operation_rev_rotate(stack_a, "rra");
-		ps_operation_swap(stack_a, "sa");
+		ps_operation_swap(stack, "sa");
+		if ((*stack)->value > (*stack)->next->next->value)
+			ps_operation_rev_rotate(stack, "rra");
 	}
-	else if ((*stack_a)->index == 1)
+	else if ((*stack)->value < (*stack)->next->value
+		&& (*stack)->value < (*stack)->next->next->value
+		&& (*stack)->next->value > (*stack)->next->next->value)
 	{
-		if ((*stack_a)->next->index == 0)
-			ps_operation_swap(stack_a, "sa");
-		else
-			ps_operation_rev_rotate(stack_a, "rra");
+		ps_operation_swap(stack, "sa");
+		ps_operation_rotate(stack, "ra");
 	}
-	else if ((*stack_a)->index == 2)
-	{
-		if ((*stack_a)->next->index == 0)
-			ps_operation_swap(stack_a, "ra");
-		else
-		{
-			ps_operation_rotate(stack_a, "ra");
-			ps_operation_swap(stack_a, "sa");
-		}
-	}
+	else if ((*stack)->next->next->value < (*stack)->value)
+		ps_operation_rev_rotate(stack, "rra");
 }

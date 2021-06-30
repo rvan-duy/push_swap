@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:58:31 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/06/01 15:09:17 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/06/30 16:04:38 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ void	ps_init(t_data *data, int argc, char **argv)
 	ft_bzero(data, sizeof(t_data));
 	ps_stack_ab_init(data, argc, argv);
 	data->total_len = ps_node_len(&data->stack_a);
-	data->median_index = data->total_len / 2;
+	data->max_index = data->total_len - 1;
 	data->stack_a_len = data->total_len;
 	data->stack_b_len = 0;
 }

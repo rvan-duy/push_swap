@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:07:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/28 18:20:49 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/06/30 12:53:25 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int32_t	main(int32_t argc, char **argv)
 		// printf("b:\n");
 		// ps_node_print(&data.stack_b);
 		ps_sorted_check(&data.stack_a, &data.stack_b);
-		ps_putresult(1);
+		ps_putresult(OK);
 	}
 	return (0);
 }

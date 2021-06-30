@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 14:04:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/28 16:43:08 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/06/30 12:53:52 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 void	ps_error(void)
 {
 	ft_putendl_fd("Error", 2);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 
 void	ps_putresult(int result)
 {
-	if (result == 1)
+	if (result == OK)
 	{
 		ft_putendl_fd("OK", 1);
-		exit(1);
+		exit(EXIT_SUCCESS);
 	}
 	else
 	{
 		ft_putendl_fd("KO", 1);
-		exit(1);
+		exit(EXIT_SUCCESS);
 	}
 }
 
@@ -38,7 +38,7 @@ void	*ps_calloc(size_t size)
 	void	*ptr;
 
 	ptr = ft_calloc(1, size);
-	if (!ptr)
+	if (ptr == NULL)
 		ps_error();
 	return (ptr);
 }
@@ -51,11 +51,11 @@ void	ps_sorted_check(t_node **stack_a, t_node **stack_b)
 	tmp = *stack_a;
 	prev_value = INT32_MIN;
 	if (*stack_b)
-		ps_putresult(0);
+		ps_putresult(KO);
 	while (tmp)
 	{
 		if (tmp->value < prev_value)
-			ps_putresult(0);
+			ps_putresult(KO);
 		prev_value = tmp->value;
 		tmp = tmp->next;
 	}

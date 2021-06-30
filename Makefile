@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/06/01 15:50:00 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/06/30 13:59:27 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC_BOTH	= utilities/ps_init.c utilities/ps_utils_1.c utilities/ps_utils_2.c ope
 				node/ps_node_back_add.c node/ps_node_front_add.c node/ps_node_last_get.c node/ps_node_new.c node/ps_node_sortedstack_add.c \
 				node/ps_node_print.c node/ps_node_unlink.c node/ps_node_len.c node/ps_node_inbetween_add.c operations/ps_operation_generate.c \
 				calculations/ps_calculate_small.c calculations/ps_calculate_extra_small.c calculations/ps_calculate_huge.c \
-				calculations/ps_calculate_utils_1.c
+				calculations/ps_calculate_utils_1.c calculations/ps_calculate_medium.c
 LIBFT 	= libft/libft.a
 
 NOCOLOR = \033[0m
@@ -77,4 +77,4 @@ test: clean all
 	./$(PUSH_SWAP) 0 1 2 3
 
 py10: all
-	python3 ./tester/pyviz.py `ruby -e "puts (0..499).to_a.shuffle.join(' ')"`
+	python3 ./tester/pyviz.py `ruby -e "puts (0..7).to_a.shuffle.join(' ')"`

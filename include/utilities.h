@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 12:36:42 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/28 11:37:02 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/06/30 12:52:12 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "structs.h"
 
+# define OK 1
+# define KO 0
 
 void	ps_init(t_data *data, int32_t argc, char **argv);
 void	*ps_calloc(size_t size);

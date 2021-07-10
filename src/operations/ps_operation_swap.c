@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/19 13:22:24 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/27 11:14:57 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/07/10 19:04:56 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ void	ps_operation_swap(t_node **head, char *msg)
 	if (!*head || !(*head)->next)
 		return ;
 	tmp = (*head)->next;
-	(*head)->next = tmp->next;
-	tmp->next = *head;
-	tmp->prev = (*head)->prev;
-	(*head)->prev = tmp;
-	*head = tmp;
+	(*head)->next = (*head)->next->next;
+	(*head)->next->prev = (*head);
+	(*head)->prev = (*head)->next;
+	tmp->prev = NULL;
+	tmp->next = (*head);
+	(*head) = tmp;
 	if (msg != NULL)
 		ft_putendl_fd(msg, 1);
 }

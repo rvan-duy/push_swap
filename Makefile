@@ -6,15 +6,15 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/06/30 13:59:27 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/07/10 17:08:00 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CHECKER		= checker
 PUSH_SWAP	= push_swap
 CC			= gcc
-FLAGS		= -g -fsanitize=address -Wall -Wextra -Werror
-UNUSED		= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
+FLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
+UNUSED		= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function -g -fsanitize=address
 HEADER		= -I include
 SRC_CHECKER	= checker.c
 SRC_PUSH_SWAP = push_swap.c

@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:07:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/06/30 12:53:25 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/07/10 18:45:53 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "utilities.h"
 #include "node.h"
 #include "libft.h"
-#include <stdio.h>
 
 /**
  * sa: swap the first 2 elements on top of stack_a
@@ -57,10 +56,6 @@ static void	ps_operation_exec(char *line, t_data *data)
 		ps_operation_rev_rotate_both(&data->stack_a, &data->stack_b, NULL);
 	else if (ft_strncmp(line, "\0", 2))
 		ps_error();
-	// printf("a:\n");
-	// ps_node_print(&data->stack_a);
-	// printf("b:\n");
-	// ps_node_print(&data->stack_b);
 }
 
 int32_t	main(int32_t argc, char **argv)
@@ -77,13 +72,14 @@ int32_t	main(int32_t argc, char **argv)
 		{
 			ret = get_next_line(0, &line);
 			ps_operation_exec(line, &data);
-			free(line);
+			ft_free(&line);
 		}
 		// printf("a:\n");
 		// ps_node_print(&data.stack_a);
 		// printf("b:\n");
 		// ps_node_print(&data.stack_b);
 		ps_sorted_check(&data.stack_a, &data.stack_b);
+		free_list(data.stack_a);
 		ps_putresult(OK);
 	}
 	return (0);

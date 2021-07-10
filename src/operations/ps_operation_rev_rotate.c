@@ -25,6 +25,7 @@ void	ps_operation_rev_rotate(t_node **head, char *msg)
 
 	if (!*head || !(*head)->next)
 		return ;
+	// ps_node_printf(head);
 	tmp_1 = ps_node_last_get(head);
 	tmp_2 = ps_node_unlink(head, tmp_1);
 	ps_node_front_add(head, tmp_2);

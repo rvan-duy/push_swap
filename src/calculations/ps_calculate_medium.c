@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/30 13:50:03 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/06/30 18:08:04 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/07/10 18:20:14 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,26 +67,42 @@ static void	insert_all_back_to_a(t_node **stack_a, t_node **stack_b)
 	}
 }
 
-static void	push_all_except_top_to_b(t_data *data)
+static void	push_all_except_max_to_b(t_data *data)
 {
 	while (data->stack_a_len > 3)
 	{
-		ps_operation_push(&data->stack_b, &data->stack_a, "pb");
-		data->stack_a_len--;
-		data->stack_b_len++;
+		if (data->stack_a->index < data->max_index - 2)
+		{
+			ps_operation_push(&data->stack_b, &data->stack_a, "pb");
+			data->stack_a_len--;
+			data->stack_b_len++;
+		}
+		else
+		{
+			ps_operation_rotate(&data->stack_a, "ra");
+		}
 	}
-}
-
-static void	rotate_to_start_index(t_node **stack_a)
-{
-	while ((*stack_a)->index != 0)
-		ps_operation_rotate(stack_a, "ra");
 }
 
 void	ps_calculate_medium(t_data *data)
 {
-	push_all_except_top_to_b(data);
+	// printf("push_all_except_top_to_b\n");
+	// printf("a:\n");
+	// ps_node_print(&data->stack_a);
+	push_all_except_max_to_b(data);
+	// printf("a:\n");
+	// ps_node_print(&data->stack_a);
+	// printf("b:\n");
+	// ps_node_print(&data->stack_b);
+	// printf("ps_calculate_small\n");
 	ps_calculate_small(&data->stack_a);
+	// printf("a:\n");
+	// ps_node_print(&data->stack_a);
+	// printf("insert_all_back_to_a\n");
 	insert_all_back_to_a(&data->stack_a, &data->stack_b);
-	rotate_to_start_index(&data->stack_a);
+	// printf("a:\n");
+	// ps_node_print(&data->stack_a);
+	rotate_to_index(&data->stack_a, 0);
+	// printf("a:\n");
+	// ps_node_print(&data->stack_a);
 }

@@ -6,13 +6,13 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/19 14:02:18 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/19 14:26:14 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/07/10 18:40:39 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "node.h"
+#include <stdio.h>
 
-// Unlinks node from a list
 t_node	*ps_node_unlink(t_node	**head, t_node *node)
 {
 	if (!node->prev && node->next)

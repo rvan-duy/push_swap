@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_calculate_huge.c                                :+:    :+:            */
+/*   calculate_huge.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -33,7 +33,7 @@
  * the implementation looks at the binary of the index of the numbers
  * this algorithm is only really efficient enough for huge stacks
  */
-void	ps_calculate_huge(t_data *data)
+void	calculate_huge(t_data *data)
 {
 	size_t	max_index;
 	size_t	max_bits;
@@ -51,13 +51,13 @@ void	ps_calculate_huge(t_data *data)
 		while (j < data->total_len)
 		{
 			if (((data->stack_a->index >> i) & 1) == 1)
-				ps_operation_rotate(&data->stack_a, "ra");
+				operation_rotate(&data->stack_a, "ra");
 			else
-				ps_operation_push(&data->stack_b, &data->stack_a, "pb");
+				operation_push(&data->stack_b, &data->stack_a, "pb");
 			j++;
 		}
 		while (data->stack_b != NULL)
-			ps_operation_push(&data->stack_a, &data->stack_b, "pa");
+			operation_push(&data->stack_a, &data->stack_b, "pa");
 		i++;
 	}
 }

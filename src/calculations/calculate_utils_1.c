@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_calculate_utils_1.c                             :+:    :+:            */
+/*   calculate_utils_1.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -22,7 +22,7 @@ static void	apply_rotation(t_node **head, size_t solution, size_t amount)
 	{
 		while (amount > 0)
 		{
-			ps_operation_rotate(head, "ra");
+			operation_rotate(head, "ra");
 			amount--;
 		}
 	}
@@ -30,13 +30,13 @@ static void	apply_rotation(t_node **head, size_t solution, size_t amount)
 	{
 		while (amount > 0)
 		{
-			ps_operation_rev_rotate(head, "rra");
+			operation_rev_rotate(head, "rra");
 			amount--;
 		}
 	}
 }
 
-void	ps_calculate_rotate_bits(t_node **head, size_t len)
+void	calculate_rotate_bits(t_node **head, size_t len)
 {
 	size_t	i;
 	size_t	found_solution;
@@ -46,7 +46,7 @@ void	ps_calculate_rotate_bits(t_node **head, size_t len)
 	found_solution = 0;
 	i = 0;
 	tmp_1 = *head;
-	tmp_2 = ps_node_last_get(head);
+	tmp_2 = node_last_get(head);
 	while (i < (len / 2) && found_solution == 0)
 	{
 		if (((tmp_1->next->index >> i) & 1) == 0)

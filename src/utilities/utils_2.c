@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_utils_2.c                                       :+:    :+:            */
+/*   utils_2.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -18,7 +18,7 @@
  * Checks if number already exits in the list
  * If it does, it errors the program
  */
-void	ps_stack_dup_check(int32_t number, t_node **head)
+void	stack_dup_check(int32_t number, t_node **head)
 {
 	t_node	*tmp;
 
@@ -26,7 +26,7 @@ void	ps_stack_dup_check(int32_t number, t_node **head)
 	while (tmp)
 	{
 		if (number == tmp->value)
-			ps_error();
+			error();
 		tmp = tmp->next;
 	}
 }

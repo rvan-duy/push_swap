@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_init.c                                          :+:    :+:            */
+/*   init.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -21,21 +21,6 @@
 // 500 / 49
 // eerste 3 groepen vormen
 // dan die groepen steeds uitsplitesen
-// 
-
-// PUT THIS IN LIBFT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-void	ft_array_free(char **array)
-{
-	size_t	i;
-
-	i = 0;
-	while (array[i])
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
-}
 
 // Assigns index value to sorted list
 static void	index_assign(t_node **sorted)
@@ -92,7 +77,7 @@ static char	**string_split_checks(char *str)
 	size_t	i;
 
 	if (str[0] == '\0')
-		ps_error();
+		error();
 	i = 0;
 	digit_found = 0;
 	while (str[i] && digit_found == 0)
@@ -102,10 +87,10 @@ static char	**string_split_checks(char *str)
 		i++;
 	}
 	if (digit_found == 0)
-		ps_error();
+		error();
 	numbers = ft_split(str, ' ');
 	if (!numbers)
-		ps_error();
+		error();
 	return (numbers);
 }
 
@@ -115,7 +100,7 @@ static char	**string_split_checks(char *str)
  * But also in a sorted stack, which is then used to assign an index
  * to the stack_a values
  */
-static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)
+static void	stack_ab_init(t_data *data, int32_t argc, char **argv)
 {
 	int32_t	number;
 	size_t	i;
@@ -129,25 +114,25 @@ static void	ps_stack_ab_init(t_data *data, int32_t argc, char **argv)
 			i++;
 		while (i > 0)
 		{
-			number = ps_atoi(numbers[i - 1]);
+			number = atoi(numbers[i - 1]);
 			if (data->stack_a)
-				ps_stack_dup_check(number, &data->stack_a);
-			ps_node_front_add(&data->stack_a, ps_node_new(number));
-			ps_node_sortedstack_add(&data->sorted, ps_node_new(number));
+				stack_dup_check(number, &data->stack_a);
+			node_front_add(&data->stack_a, node_new(number));
+			node_sortedstack_add(&data->sorted, node_new(number));
 			i--;
 		}
-		ft_array_free(numbers);
+		ft_array_free((void **)numbers, ft_array_len((void **)numbers));
 		argc--;
 	}
 	index_assign(&data->sorted);
 	index_read(&data->sorted, &data->stack_a);
 }
 
-void	ps_init(t_data *data, int argc, char **argv)
+void	init(t_data *data, int argc, char **argv)
 {
 	ft_bzero(data, sizeof(t_data));
-	ps_stack_ab_init(data, argc, argv);
-	data->total_len = ps_node_len(&data->stack_a);
+	stack_ab_init(data, argc, argv);
+	data->total_len = node_len(&data->stack_a);
 	data->max_index = data->total_len - 1;
 	data->stack_a_len = data->total_len;
 	data->stack_b_len = 0;

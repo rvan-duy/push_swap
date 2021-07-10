@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_node_new.c                                      :+:    :+:            */
+/*   node_back_add.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/19 14:01:32 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/27 10:45:43 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/19 14:02:57 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/24 17:08:54 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "node.h"
-#include "utilities.h"
 
-// Creates new node
-t_node	*ps_node_new(int32_t number)
+// Adds a node to the back of a list
+void	node_back_add(t_node **head, t_node *new)
 {
-	t_node	*node;
+	t_node	*tmp;
 
-	node = ps_calloc(sizeof(t_node));
-	node->value = number;
-	return (node);
+	if (!*head)
+	{
+		*head = new;
+		return ;
+	}
+	tmp = node_last_get(head);
+	tmp->next = new;
+	new->prev = tmp;
 }

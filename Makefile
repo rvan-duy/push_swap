@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/07/10 17:08:00 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/07/10 20:28:03 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ UNUSED		= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function -g -fs
 HEADER		= -I include
 SRC_CHECKER	= checker.c
 SRC_PUSH_SWAP = push_swap.c
-SRC_BOTH	= utilities/ps_init.c utilities/ps_utils_1.c utilities/ps_utils_2.c operations/ps_operation_push.c \
-				operations/ps_operation_rotate.c operations/ps_operation_swap.c operations/ps_operation_rev_rotate.c \
-				node/ps_node_back_add.c node/ps_node_front_add.c node/ps_node_last_get.c node/ps_node_new.c node/ps_node_sortedstack_add.c \
-				node/ps_node_print.c node/ps_node_unlink.c node/ps_node_len.c node/ps_node_inbetween_add.c operations/ps_operation_generate.c \
-				calculations/ps_calculate_small.c calculations/ps_calculate_extra_small.c calculations/ps_calculate_huge.c \
-				calculations/ps_calculate_utils_1.c calculations/ps_calculate_medium.c
+SRC_BOTH	= utilities/init.c utilities/utils_1.c utilities/utils_2.c operations/operation_push.c \
+				operations/operation_rotate.c operations/operation_swap.c operations/operation_rev_rotate.c \
+				node/node_back_add.c node/node_front_add.c node/node_last_get.c node/node_new.c node/node_sortedstack_add.c \
+				node/node_print.c node/node_unlink.c node/node_len.c node/node_inbetween_add.c operations/operation_generate.c \
+				calculations/calculate_small.c calculations/calculate_extra_small.c calculations/calculate_huge.c \
+				calculations/calculate_utils_1.c calculations/calculate_medium.c
 LIBFT 	= libft/libft.a
 
 NOCOLOR = \033[0m

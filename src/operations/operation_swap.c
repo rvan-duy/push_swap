@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_operation_swap.c                                :+:    :+:            */
+/*   operation_swap.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -17,7 +17,7 @@
  * Switches the first 2 nodes of head, does nothing
  * if there are only 1 or 0 nodes in head
  */
-void	ps_operation_swap(t_node **head, char *msg)
+void	operation_swap(t_node **head, char *msg)
 {
 	t_node	*tmp;
 
@@ -38,10 +38,10 @@ void	ps_operation_swap(t_node **head, char *msg)
  * Switches the first 2 nodes of head1 and head2, does nothing
  * if there are only 1 or 0 nodes in either one of the heads
  */
-void	ps_operation_swap_both(t_node **head1, t_node **head2, char *msg)
+void	operation_swap_both(t_node **head1, t_node **head2, char *msg)
 {
-	ps_operation_swap(head1, NULL);
-	ps_operation_swap(head2, NULL);
+	operation_swap(head1, NULL);
+	operation_swap(head2, NULL);
 	if (msg != NULL)
 		ft_putendl_fd(msg, 1);
 }

@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   calculations.h                                     :+:    :+:            */
+/*   node_inbetween_add.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/24 15:16:53 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/07/10 20:28:03 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/20 14:18:52 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/20 14:24:17 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CALCULATIONS_H
-# define CALCULATIONS_H
+#include "node.h"
 
-# include "structs.h"
+void	node_inbetween_add(t_node *before, t_node *after, t_node *new)
+{
+	t_node	*tmp_before;
+	t_node	*tmp_after;
 
-void	calculate_extra_small(t_node **stack_a);
-void	calculate_small(t_node **stack_a);
-void	calculate_medium(t_data *data);
-void	calculate_huge(t_data *data);
-
-// Utilities
-void	calculate_rotate_bits(t_node **head, size_t len);
-size_t	find_lowest_index_of_stack(t_node **head);
-size_t	find_highest_index_of_stack(t_node **head);
-
-#endif
+	tmp_before = before;
+	tmp_after = after;
+	tmp_before->next = new;
+	new->prev = tmp_before;
+	tmp_after->prev = new;
+	new->next = tmp_after;
+}

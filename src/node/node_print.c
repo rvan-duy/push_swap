@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_node_print.c                                    :+:    :+:            */
+/*   node_print.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -23,7 +23,7 @@ static int32_t	binary_conversion(int32_t num)
 }
 
 // Prints out the stack from head until the end
-void	ps_node_print(t_node **head)
+void	node_print(t_node **head)
 {
 	t_node	*tmp;
 
@@ -42,7 +42,7 @@ void	ps_node_print(t_node **head)
 	}
 }
 
-void	ps_node_printf(t_node **head)
+void	node_printf(t_node **head)
 {
 	t_node	*tmp;
 

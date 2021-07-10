@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_node_front_add.c                                :+:    :+:            */
+/*   node_new.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/19 14:03:38 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/19 14:26:14 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/19 14:01:32 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/27 10:45:43 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "node.h"
+#include "structs.h"
+#include "libft.h"
 
-// Adds a node to the front of a list
-void	ps_node_front_add(t_node **head, t_node *new)
+t_node	*node_new(int32_t number)
 {
-	t_node	*tmp;
+	t_node	*node;
 
-	if (!*head)
+	node = ft_calloc(sizeof(t_node), 1);
+	if (node == NULL)
 	{
-		*head = new;
-		return ;
+		ft_putendl_fd("Error", 2);
+		ft_putendl_fd("Failed to allocate memory.", 2);
+		exit(EXIT_FAILURE);
 	}
-	tmp = *head;
-	tmp->prev = new;
-	new->next = *head;
-	*head = new;
+	node->value = number;
+	return (node);
 }

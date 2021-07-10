@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_calculate_medium.c                              :+:    :+:            */
+/*   calculate_medium.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -26,10 +26,10 @@ static void	rotate_to_correct_index(t_node **stack_a, size_t index)
 
 	while (1)
 	{
-		last_node = ps_node_last_get(stack_a);
+		last_node = node_last_get(stack_a);
 		if ((*stack_a)->index > index && last_node->index < index)
 			return ;
-		ps_operation_rotate(stack_a, "ra");
+		operation_rotate(stack_a, "ra");
 	}
 }
 
@@ -37,7 +37,7 @@ static void	rotate_to_correct_index(t_node **stack_a, size_t index)
 static void	rotate_to_index(t_node **stack_a, size_t index)
 {
 	while ((*stack_a)->index != index)
-		ps_operation_rotate(stack_a, "ra");
+		operation_rotate(stack_a, "ra");
 }
 
 static void	insert_all_back_to_a(t_node **stack_a, t_node **stack_b)
@@ -52,17 +52,17 @@ static void	insert_all_back_to_a(t_node **stack_a, t_node **stack_b)
 		if ((*stack_b)->index < stack_a_lowest_index)
 		{
 			rotate_to_index(stack_a, stack_a_lowest_index);
-			ps_operation_push(stack_a, stack_b, "pa");
+			operation_push(stack_a, stack_b, "pa");
 		}
 		else if ((*stack_b)->index > stack_a_highest_index)
 		{
 			rotate_to_index(stack_a, stack_a_highest_index);
-			ps_operation_push(stack_a, stack_b, "pa");
+			operation_push(stack_a, stack_b, "pa");
 		}
 		else
 		{
 			rotate_to_correct_index(stack_a, (*stack_b)->index);
-			ps_operation_push(stack_a, stack_b, "pa");
+			operation_push(stack_a, stack_b, "pa");
 		}
 	}
 }
@@ -73,36 +73,36 @@ static void	push_all_except_max_to_b(t_data *data)
 	{
 		if (data->stack_a->index < data->max_index - 2)
 		{
-			ps_operation_push(&data->stack_b, &data->stack_a, "pb");
+			operation_push(&data->stack_b, &data->stack_a, "pb");
 			data->stack_a_len--;
 			data->stack_b_len++;
 		}
 		else
 		{
-			ps_operation_rotate(&data->stack_a, "ra");
+			operation_rotate(&data->stack_a, "ra");
 		}
 	}
 }
 
-void	ps_calculate_medium(t_data *data)
+void	calculate_medium(t_data *data)
 {
 	// printf("push_all_except_top_to_b\n");
 	// printf("a:\n");
-	// ps_node_print(&data->stack_a);
+	// node_print(&data->stack_a);
 	push_all_except_max_to_b(data);
 	// printf("a:\n");
-	// ps_node_print(&data->stack_a);
+	// node_print(&data->stack_a);
 	// printf("b:\n");
-	// ps_node_print(&data->stack_b);
-	// printf("ps_calculate_small\n");
-	ps_calculate_small(&data->stack_a);
+	// node_print(&data->stack_b);
+	// printf("calculate_small\n");
+	calculate_small(&data->stack_a);
 	// printf("a:\n");
-	// ps_node_print(&data->stack_a);
+	// node_print(&data->stack_a);
 	// printf("insert_all_back_to_a\n");
 	insert_all_back_to_a(&data->stack_a, &data->stack_b);
 	// printf("a:\n");
-	// ps_node_print(&data->stack_a);
+	// node_print(&data->stack_a);
 	rotate_to_index(&data->stack_a, 0);
 	// printf("a:\n");
-	// ps_node_print(&data->stack_a);
+	// node_print(&data->stack_a);
 }

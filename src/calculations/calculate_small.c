@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_calculate_small.c                               :+:    :+:            */
+/*   calculate_small.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -17,24 +17,24 @@
  * These solutions are hard coded
  */
 
-void	ps_calculate_small(t_node **stack)
+void	calculate_small(t_node **stack)
 {
 	if ((*stack)->value > (*stack)->next->next->value
 		&& (*stack)->next->value < (*stack)->next->next->value)
-		ps_operation_rotate(stack, "ra");
+		operation_rotate(stack, "ra");
 	else if ((*stack)->value > (*stack)->next->value)
 	{
-		ps_operation_swap(stack, "sa");
+		operation_swap(stack, "sa");
 		if ((*stack)->value > (*stack)->next->next->value)
-			ps_operation_rev_rotate(stack, "rra");
+			operation_rev_rotate(stack, "rra");
 	}
 	else if ((*stack)->value < (*stack)->next->value
 		&& (*stack)->value < (*stack)->next->next->value
 		&& (*stack)->next->value > (*stack)->next->next->value)
 	{
-		ps_operation_swap(stack, "sa");
-		ps_operation_rotate(stack, "ra");
+		operation_swap(stack, "sa");
+		operation_rotate(stack, "ra");
 	}
 	else if ((*stack)->next->next->value < (*stack)->value)
-		ps_operation_rev_rotate(stack, "rra");
+		operation_rev_rotate(stack, "rra");
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_node_unlink.c                                   :+:    :+:            */
+/*   node_unlink.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -13,7 +13,7 @@
 #include "node.h"
 #include <stdio.h>
 
-t_node	*ps_node_unlink(t_node	**head, t_node *node)
+t_node	*node_unlink(t_node	**head, t_node *node)
 {
 	if (!node->prev && node->next)
 	{

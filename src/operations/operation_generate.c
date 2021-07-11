@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "calculations.h"
+#include "solve.h"
 
 void	operation_generate(t_data *data)
 {
 	if (data->total_len == 2)
-		calculate_extra_small(&data->stack_a);
+		solve_extra_small(&data->stack_a);
 	else if (data->total_len == 3)
-		calculate_small(&data->stack_a);
+		solve_small(&data->stack_a);
 	else if (data->total_len >= 4 && data->total_len <= 499)
-		calculate_medium(data);
+		solve_medium(data);
 	else if (data->total_len >= 500)
-		calculate_huge(data);
+		solve_huge(data);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   calculate_utils_1.c                             :+:    :+:            */
+/*   solve_utils_1.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -10,55 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "structs.h"
+#include "solve.h"
 #include "operations.h"
 #include "node.h"
-
-static void	apply_rotation(t_node **head, size_t solution, size_t amount)
-{
-	if (solution == 0)
-		return ;
-	else if (solution == 1)
-	{
-		while (amount > 0)
-		{
-			operation_rotate(head, "ra");
-			amount--;
-		}
-	}
-	else if (solution == 2)
-	{
-		while (amount > 0)
-		{
-			operation_rev_rotate(head, "rra");
-			amount--;
-		}
-	}
-}
-
-void	calculate_rotate_bits(t_node **head, size_t len)
-{
-	size_t	i;
-	size_t	found_solution;
-	t_node	*tmp_1;
-	t_node	*tmp_2;
-
-	found_solution = 0;
-	i = 0;
-	tmp_1 = *head;
-	tmp_2 = node_last_get(head);
-	while (i < (len / 2) && found_solution == 0)
-	{
-		if (((tmp_1->next->index >> i) & 1) == 0)
-			found_solution = 1;
-		else if (((tmp_2->index >> i) & 1) == 0)
-			found_solution = 2;
-		tmp_1 = tmp_1->next;
-		tmp_2 = tmp_2->prev;
-		i++;
-	}
-	apply_rotation(head, found_solution, i);
-}
 
 size_t	find_lowest_index_of_stack(t_node **head)
 {
@@ -90,4 +44,43 @@ size_t	find_highest_index_of_stack(t_node **head)
 		tmp_head = tmp_head->next;
 	}
 	return (highest_index);
+}
+
+int	calculate_fastest_route_to_index(t_node **stack, size_t index, \
+										size_t stack_len)
+{
+	size_t	i;
+	t_node	*first_node_tmp;
+	t_node	*last_node_tmp;
+
+	i = 0;
+	first_node_tmp = (*stack)->next;
+	last_node_tmp = node_get_last(stack);
+	while (i < (stack_len / 2) + 1)
+	{
+		if (first_node_tmp->index == index)
+			return (ROTATE);
+		if (last_node_tmp->index == index)
+			return (REV_ROTATE);
+		first_node_tmp = first_node_tmp->next;
+		last_node_tmp = last_node_tmp->prev;
+	}
+	return (ROTATE);
+}
+
+void	rotate_a_to_index(t_node **stack_a, size_t index, size_t stack_len)
+{
+	const int	operation = calculate_fastest_route_to_index(stack_a, \
+													index, stack_len);
+
+	if (operation == ROTATE)
+	{
+		while ((*stack_a)->index != index)
+			operation_rotate(stack_a, "ra");
+	}
+	else if (operation == REV_ROTATE)
+	{
+		while ((*stack_a)->index != index)
+			operation_rev_rotate(stack_a, "rra");
+	}
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   calculate_huge.c                                :+:    :+:            */
+/*   solve_huge.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,28 +12,13 @@
 
 #include "operations.h"
 
-// Check list for data >> i + 1 & 1 == 0
-// then it stays
-// static int32_t	pushable_nodes(t_node **stack_b, size_t i)
-// {
-// 	t_node	*tmp;
-
-// 	tmp = *stack_b;
-// 	while (tmp)
-// 	{
-// 		if (((tmp->index >> i) & 1) == 0)
-// 			return (0);
-// 		tmp = tmp->next;
-// 	}
-// 	return (1);
-// }
-
 /**
  * My implementation of the Radix sort algorithm,
  * the implementation looks at the binary of the index of the numbers
  * this algorithm is only really efficient enough for huge stacks
  */
-void	calculate_huge(t_data *data)
+
+void	solve_huge(t_data *data)
 {
 	size_t	max_index;
 	size_t	max_bits;

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   calculate_small.c                               :+:    :+:            */
+/*   solve_small.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -13,11 +13,13 @@
 #include "operations.h"
 
 /**
- * Calculates the least amount of operations for a small amount of numbers (3).
+ * solves the least amount of operations for a small amount of numbers (3).
  * These solutions are hard coded
  */
 
-void	calculate_small(t_node **stack)
+#include "node.h"
+
+void	solve_small(t_node **stack)
 {
 	if ((*stack)->value > (*stack)->next->next->value
 		&& (*stack)->next->value < (*stack)->next->next->value)

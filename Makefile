@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/07/10 20:28:03 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/07/11 13:06:59 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ SRC_CHECKER	= checker.c
 SRC_PUSH_SWAP = push_swap.c
 SRC_BOTH	= utilities/init.c utilities/utils_1.c utilities/utils_2.c operations/operation_push.c \
 				operations/operation_rotate.c operations/operation_swap.c operations/operation_rev_rotate.c \
-				node/node_back_add.c node/node_front_add.c node/node_last_get.c node/node_new.c node/node_sortedstack_add.c \
+				node/node_back_add.c node/node_front_add.c node/node_get_last.c node/node_new.c node/node_sortedstack_add.c \
 				node/node_print.c node/node_unlink.c node/node_len.c node/node_inbetween_add.c operations/operation_generate.c \
-				calculations/calculate_small.c calculations/calculate_extra_small.c calculations/calculate_huge.c \
-				calculations/calculate_utils_1.c calculations/calculate_medium.c
+				solve/solve_small.c solve/solve_extra_small.c solve/solve_huge.c \
+				solve/solve_utilities.c solve/solve_medium.c
 LIBFT 	= libft/libft.a
 
 NOCOLOR = \033[0m
@@ -34,7 +34,7 @@ OBJ_DIR	= \
 	obj/utilities \
 	obj/operations \
 	obj/node \
-	obj/calculations
+	obj/solve
 
 SRCS_CHECKER	= $(addprefix src/, $(SRC_CHECKER))
 SRCS_PUSH_SWAP	= $(addprefix src/, $(SRC_PUSH_SWAP))

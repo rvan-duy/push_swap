@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   calculate_extra_small.c                         :+:    :+:            */
+/*   node_get_last.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/25 12:05:15 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/05/28 16:28:07 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/19 14:04:18 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/20 13:43:11 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
+#include "node.h"
 
-// Just swaps stack_a, idk what else to tell you ¯\_(ツ)_/¯
-void	calculate_extra_small(t_node **stack_a)
+t_node	*node_get_last(t_node **head)
 {
-	if ((*stack_a)->index == 1)
-		operation_swap(stack_a, "sa");
+	t_node	*tmp;
+
+	tmp = *head;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	return (tmp);
 }

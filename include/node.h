@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/19 13:55:52 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/07/10 20:27:34 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/07/10 21:29:37 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "structs.h"
 
 t_node	*node_new(int32_t number);
-t_node	*node_last_get(t_node **head);
+t_node	*node_get_last(t_node **head);
 t_node	*node_unlink(t_node **head, t_node *node);
 void	node_front_add(t_node **head, t_node *new);
 void	node_back_add(t_node **head, t_node *new);

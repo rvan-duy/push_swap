@@ -22,7 +22,7 @@ void	node_back_add(t_node **head, t_node *new)
 		*head = new;
 		return ;
 	}
-	tmp = node_last_get(head);
+	tmp = node_get_last(head);
 	tmp->next = new;
 	new->prev = tmp;
 }

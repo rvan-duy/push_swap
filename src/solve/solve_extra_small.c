@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   calculations.h                                     :+:    :+:            */
+/*   solve_extra_small.c                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/24 15:16:53 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/07/10 20:28:03 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/05/25 12:05:15 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/05/28 16:28:07 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CALCULATIONS_H
-# define CALCULATIONS_H
+#include "operations.h"
 
-# include "structs.h"
-
-void	calculate_extra_small(t_node **stack_a);
-void	calculate_small(t_node **stack_a);
-void	calculate_medium(t_data *data);
-void	calculate_huge(t_data *data);
-
-// Utilities
-void	calculate_rotate_bits(t_node **head, size_t len);
-size_t	find_lowest_index_of_stack(t_node **head);
-size_t	find_highest_index_of_stack(t_node **head);
-
-#endif
+// Just swaps stack_a, idk what else to tell you ¯\_(ツ)_/¯
+void	solve_extra_small(t_node **stack_a)
+{
+	if ((*stack_a)->index == 1)
+		operation_swap(stack_a, "sa");
+}

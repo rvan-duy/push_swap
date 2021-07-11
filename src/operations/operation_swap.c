@@ -13,23 +13,23 @@
 #include "operations.h"
 #include "libft.h"
 
+#include <stdio.h>
+#include "node.h"
+
 /** 
  * Switches the first 2 nodes of head, does nothing
  * if there are only 1 or 0 nodes in head
  */
 void	operation_swap(t_node **head, char *msg)
 {
-	t_node	*tmp;
-
 	if (!*head || !(*head)->next)
 		return ;
-	tmp = (*head)->next;
+	(*head)->prev = (*head)->next;
 	(*head)->next = (*head)->next->next;
 	(*head)->next->prev = (*head);
-	(*head)->prev = (*head)->next;
-	tmp->prev = NULL;
-	tmp->next = (*head);
-	(*head) = tmp;
+	(*head)->prev->next = (*head);
+	(*head)->prev->prev = NULL;
+	(*head) = (*head)->prev;
 	if (msg != NULL)
 		ft_putendl_fd(msg, 1);
 }

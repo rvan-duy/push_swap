@@ -10,14 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
 #include "node.h"
 #include "libft.h"
 
-/**
- * Reverse rotates a list, 
- * the last node becomes the first one
- */
 void	operation_rev_rotate(t_node **head, char *msg)
 {
 	t_node	*tmp_1;
@@ -25,17 +20,13 @@ void	operation_rev_rotate(t_node **head, char *msg)
 
 	if (!*head || !(*head)->next)
 		return ;
-	tmp_1 = node_last_get(head);
+	tmp_1 = node_get_last(head);
 	tmp_2 = node_unlink(head, tmp_1);
 	node_front_add(head, tmp_2);
 	if (msg != NULL)
 		ft_putendl_fd(msg, 1);
 }
 
-/**
- * Reverse rotates two lists,
- * the last node becomes the first one
- */
 void	operation_rev_rotate_both(t_node **head1, t_node **head2, char *msg)
 {
 	operation_rev_rotate(head1, NULL);

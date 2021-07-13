@@ -84,3 +84,10 @@ void	rotate_a_to_index(t_node **stack_a, size_t index, size_t stack_len)
 			operation_rev_rotate(stack_a, "rra");
 	}
 }
+
+void	push_top_b_to_a(t_data *data)
+{
+	operation_push(&data->stack_a, &data->stack_b, "pa");
+	data->stack_a_len++;
+	data->stack_b_len--;
+}

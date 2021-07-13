@@ -29,5 +29,6 @@ size_t	find_highest_index_of_stack(t_node **head);
 void	rotate_a_to_index(t_node **stack_a, size_t index, size_t stack_len);
 int		calculate_fastest_route_to_index(t_node **stack, size_t index, \
 										size_t stack_len);
+void	push_top_b_to_a(t_data *data);
 
 #endif

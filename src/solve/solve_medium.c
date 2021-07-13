@@ -13,7 +13,6 @@
 #include "operations.h"
 #include "solve.h"
 #include "node.h"
-#include <stdio.h>
 
 static void	push_all_except_3_to_b(t_data *data)
 {
@@ -69,9 +68,7 @@ static void	insert_all_back_to_a(t_data *data)
 				rotate_a_to_index(&data->stack_a, middle_index, \
 									data->stack_a_len);
 		}
-		operation_push(&data->stack_a, &data->stack_b, "pa");
-		data->stack_a_len++;
-		data->stack_b_len--;
+		push_top_b_to_a(data);
 	}
 }
 

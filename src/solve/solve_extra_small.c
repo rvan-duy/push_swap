@@ -13,6 +13,7 @@
 #include "operations.h"
 
 // Just swaps stack_a, idk what else to tell you ¯\_(ツ)_/¯
+
 void	solve_extra_small(t_node **stack_a)
 {
 	if ((*stack_a)->index == 1)

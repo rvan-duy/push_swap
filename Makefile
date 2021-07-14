@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/07/11 13:06:59 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/07/14 10:56:23 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC_BOTH	= utilities/init.c utilities/utils_1.c utilities/utils_2.c operations/o
 				node/node_back_add.c node/node_front_add.c node/node_get_last.c node/node_new.c node/node_sortedstack_add.c \
 				node/node_print.c node/node_unlink.c node/node_len.c node/node_inbetween_add.c operations/operation_generate.c \
 				solve/solve_small.c solve/solve_extra_small.c solve/solve_huge.c \
-				solve/solve_utilities.c solve/solve_medium.c
+				solve/solve_utilities_1.c solve/solve_medium.c solve/solve_utilities_2.c
 LIBFT 	= libft/libft.a
 
 NOCOLOR = \033[0m

@@ -18,6 +18,8 @@
 # define ROTATE 0
 # define REV_ROTATE 1
 # define SOLVED 0
+# define ORDERED 1
+# define NOT_ORDERED 0
 
 void	solve_extra_small(t_node **stack_a);
 void	solve_small(t_node **stack_a);
@@ -30,5 +32,6 @@ void	rotate_a_to_index(t_node **stack_a, size_t index, size_t stack_len);
 int		calculate_fastest_route_to_index(t_node **stack, size_t index, \
 										size_t stack_len);
 void	push_top_b_to_a(t_data *data);
+int		check_index_order(t_node **stack);
 
 #endif

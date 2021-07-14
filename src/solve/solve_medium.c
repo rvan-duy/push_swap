@@ -75,7 +75,8 @@ static void	insert_all_back_to_a(t_data *data)
 void	solve_medium(t_data *data)
 {
 	push_all_except_3_to_b(data);
-	solve_small(&data->stack_a);
+	if (check_index_order(&data->stack_a) == NOT_ORDERED)
+		solve_small(&data->stack_a);
 	insert_all_back_to_a(data);
 	if (data->stack_a->index != SOLVED)
 		rotate_a_to_index(&data->stack_a, 0, data->stack_a_len);

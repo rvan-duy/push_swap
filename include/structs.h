@@ -6,19 +6,18 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 09:46:38 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/06/30 16:07:00 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/07/31 20:28:55 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-# include <stdint.h>
 # include <stdlib.h>
 
 typedef struct s_node {
 	struct s_node	*prev;
-	int32_t			value;
+	int				value;
 	size_t			index;
 	struct s_node	*next;
 }	t_node;

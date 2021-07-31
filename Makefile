@@ -6,15 +6,14 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/07/14 10:56:23 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/07/30 15:59:06 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CHECKER		= checker
 PUSH_SWAP	= push_swap
 CC			= gcc
-FLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
-UNUSED		= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function -g -fsanitize=address
+FLAGS		= -Wall -Wextra -Werror -g
 HEADER		= -I include
 SRC_CHECKER	= checker.c
 SRC_PUSH_SWAP = push_swap.c
@@ -50,12 +49,14 @@ obj/%.o: src/%.c
 	@$(CC) $(FLAGS) $(HEADER) -c $< -o $@
 
 $(CHECKER): $(OBJ_CHECKER) $(OBJ_BOTH)
-	@$(CC) $(FLAGS) $(HEADER) $(OBJ_CHECKER) $(OBJ_BOTH) $(LIBFT) -o $(CHECKER)
 	@echo "$(COLOR)Creating object files and the executable. ($(CHECKER))$(NOCOLOR)"
+	@make -C libft
+	@$(CC) $(FLAGS) $(HEADER) $(OBJ_CHECKER) $(OBJ_BOTH) $(LIBFT) -o $(CHECKER)
 
 $(PUSH_SWAP): $(OBJ_PUSH_SWAP) $(OBJ_BOTH)
-	@$(CC) $(FLAGS) $(HEADER) $(OBJ_PUSH_SWAP) $(OBJ_BOTH) $(LIBFT) -o $(PUSH_SWAP)
 	@echo "$(COLOR)Creating object files and the executable. ($(PUSH_SWAP))$(NOCOLOR)"
+	@make -C libft
+	@$(CC) $(FLAGS) $(HEADER) $(OBJ_PUSH_SWAP) $(OBJ_BOTH) $(LIBFT) -o $(PUSH_SWAP)
 
 .PHONY:	all clean fclean re debug
 

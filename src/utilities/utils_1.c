@@ -36,7 +36,7 @@ void	putresult(int result)
 void	sorted_check(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*tmp;
-	int32_t	prev_value;
+	int		prev_value;
 
 	tmp = *stack_a;
 	prev_value = INT32_MIN;

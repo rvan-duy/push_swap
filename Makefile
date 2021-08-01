@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/07/30 15:59:06 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/07/31 23:52:33 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ PUSH_SWAP	= push_swap
 CC			= gcc
 FLAGS		= -Wall -Wextra -Werror -g
 HEADER		= -I include
+
 SRC_CHECKER	= checker.c
 SRC_PUSH_SWAP = push_swap.c
 SRC_BOTH	= utilities/init.c utilities/utils_1.c utilities/utils_2.c operations/operation_push.c \
@@ -49,14 +50,16 @@ obj/%.o: src/%.c
 	@$(CC) $(FLAGS) $(HEADER) -c $< -o $@
 
 $(CHECKER): $(OBJ_CHECKER) $(OBJ_BOTH)
-	@echo "$(COLOR)Creating object files and the executable. ($(CHECKER))$(NOCOLOR)"
+	@printf "$(COLOR)Creating object files and the executable. ($(CHECKER))$(NOCOLOR)\n"
 	@make -C libft
 	@$(CC) $(FLAGS) $(HEADER) $(OBJ_CHECKER) $(OBJ_BOTH) $(LIBFT) -o $(CHECKER)
+	@printf "$(COLOR)Done.$(NOCOLOR)\n"
 
 $(PUSH_SWAP): $(OBJ_PUSH_SWAP) $(OBJ_BOTH)
-	@echo "$(COLOR)Creating object files and the executable. ($(PUSH_SWAP))$(NOCOLOR)"
+	@printf "$(COLOR)Creating object files and the executable. ($(PUSH_SWAP))$(NOCOLOR)\n"
 	@make -C libft
 	@$(CC) $(FLAGS) $(HEADER) $(OBJ_PUSH_SWAP) $(OBJ_BOTH) $(LIBFT) -o $(PUSH_SWAP)
+	@printf "$(COLOR)Done.$(NOCOLOR)\n"
 
 .PHONY:	all clean fclean re debug
 
@@ -64,18 +67,18 @@ clean:
 	@/bin/rm -f $(OBJ)
 	@/bin/rm -f .DS_Store
 	@/bin/rm -f a.out
-	@echo "$(COLOR)Removing object files.$(NOCOLOR)"
+	@printf "$(COLOR)Removing object files.$(NOCOLOR)\n"
 
 fclean: clean
 	@/bin/rm -f $(CHECKER) $(PUSH_SWAP)
 	@/bin/rm -rf $(OBJ_DIR)
-	@echo "$(COLOR)Removing executable and object directories.$(NOCOLOR)"
+	@printf "$(COLOR)Removing executable and object directories.$(NOCOLOR)\n"
 
 re: fclean all
 
-test: clean all
-	@echo "$(COLOR)Testing with basic test case.$(NOCOLOR)"
-	./$(PUSH_SWAP) 0 1 2 3
+test: all
+	@printf "$(COLOR)Testing...$(NOCOLOR)\n"
+	./$(PUSH_SWAP) 0 1 2 | ./$(CHECKER) 0 1 2
 
 py10: all
-	python3 ./tester/pyviz.py `ruby -e "puts (0..7).to_a.shuffle.join(' ')"`
+	python3 ./tester/pyviz.py `ruby -e "puts (0..98).to_a.shuffle.join(' ')"`

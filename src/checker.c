@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/14 13:07:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/07/10 20:42:38 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/01 15:46:08 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static void	operation_exec(char *line, t_data *data)
 	else if (ft_strncmp(line, "\0", 2))
 		error();
 }
+
+#include <stdio.h>
 
 int32_t	main(int32_t argc, char **argv)
 {

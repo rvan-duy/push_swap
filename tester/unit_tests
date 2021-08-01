@@ -1,0 +1,9 @@
+for i in `seq 1 100`
+do
+    result=$(ARG=`ruby -e "puts (0..9).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker $ARG)
+    if [ "$result" == "OK" ]; then
+        printf "test passed\n";
+    else
+        printf "TEST FAILED\n";
+    fi
+done

@@ -54,7 +54,7 @@ int	calculate_fastest_route_to_index(t_node **stack, size_t index, \
 	t_node	*last_node_tmp;
 
 	i = 0;
-	first_node_tmp = (*stack)->next;
+	first_node_tmp = (*stack);
 	last_node_tmp = node_get_last(stack);
 	while (i < (stack_len / 2) + 1)
 	{

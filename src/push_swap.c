@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/19 13:11:04 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/07/30 16:20:48 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/07/31 22:15:03 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int	main(int argc, char **argv)
 		free_list(data.stack_a);
 		free_list(data.sorted);
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }

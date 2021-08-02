@@ -19,8 +19,6 @@
  */
 void	operation_swap(t_node **head, char *msg)
 {
-	// doesn't swap properly when elements is only 2
-	// should probably go back to regular swap
 	if (!*head || !(*head)->next)
 		return ;
 	(*head)->prev = (*head)->next;

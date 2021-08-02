@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/14 10:56:30 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/01 12:08:41 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/01 17:02:20 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,14 @@ int	check_index_order(t_node **stack)
 		if (tmp->next->index != 0)
 			return (NOT_ORDERED);
 	}
-	tmp = tmp->next;
-	while (tmp->next != NULL && tmp->index == tmp->next->index - 1)
+	if (tmp->next != NULL)
 		tmp = tmp->next;
+	while (tmp->next != NULL)
+	{
+		if (tmp->index != tmp->next->index - 1)
+			break ;
+		tmp = tmp->next;
+	}
 	if (tmp->next != NULL)
 		return (NOT_ORDERED);
 	return (ORDERED);

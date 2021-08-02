@@ -6,14 +6,14 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/07/31 23:52:33 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/01 18:19:43 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CHECKER		= checker
 PUSH_SWAP	= push_swap
 CC			= gcc
-FLAGS		= -Wall -Wextra -Werror -g
+FLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
 HEADER		= -I include
 
 SRC_CHECKER	= checker.c

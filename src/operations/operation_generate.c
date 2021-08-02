@@ -20,8 +20,8 @@ void	operation_generate(t_data *data)
 		solve_small(&data->stack_a);
 	else if (check_index_order(&data->stack_a) == ORDERED)
 		rotate_a_to_index(&data->stack_a, 0, data->stack_a_len);
-	else if (data->total_len >= 4 && data->total_len <= 499)
+	else if (data->total_len >= 4 && data->total_len <= 10)
 		solve_medium(data);
-	else if (data->total_len >= 500)
+	else if (data->total_len >= 11)
 		solve_huge(data);
 }

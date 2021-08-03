@@ -1,6 +1,6 @@
 sum=0
-a=2
-n=100
+a=499
+n=20
 
 for i in `seq 1 $n`
 do

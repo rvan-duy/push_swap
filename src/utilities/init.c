@@ -13,14 +13,6 @@
 #include "node.h"
 #include "libft.h"
 #include "utilities.h"
-#include <stdio.h>
-
-// eerst voorsoorteren met groepen, zodat we niet 50x hoeven te roteren
-// dan kan je steeds per groep shit doen ofzo
-// kleine groepen bovenaan zetten
-// 500 / 49
-// eerste 3 groepen vormen
-// dan die groepen steeds uitsplitesen
 
 // Assigns index value to sorted list
 static void	index_assign(t_node **sorted)
@@ -114,7 +106,7 @@ static void	stack_ab_init(t_data *data, int32_t argc, char **argv)
 			i++;
 		while (i > 0)
 		{
-			number = atoi(numbers[i - 1]);
+			number = ps_atoi(numbers[i - 1]);
 			if (data->stack_a)
 				stack_dup_check(number, &data->stack_a);
 			node_front_add(&data->stack_a, node_new(number));

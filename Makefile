@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/14 12:41:42 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/01 18:19:43 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/09/28 20:19:07 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ clean:
 fclean: clean
 	@/bin/rm -f $(CHECKER) $(PUSH_SWAP)
 	@/bin/rm -rf $(OBJ_DIR)
+	@make fclean -C libft
 	@printf "$(COLOR)Removing executable and object directories.$(NOCOLOR)\n"
 
 re: fclean all

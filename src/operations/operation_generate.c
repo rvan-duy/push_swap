@@ -22,6 +22,6 @@ void	operation_generate(t_data *data)
 		rotate_a_to_index(&data->stack_a, 0, data->stack_a_len);
 	else if (data->total_len >= 4 && data->total_len <= 79)
 		solve_medium(data);
-	else if (data->total_len >= 100)
+	else if (data->total_len >= 80)
 		solve_huge(data);
 }
